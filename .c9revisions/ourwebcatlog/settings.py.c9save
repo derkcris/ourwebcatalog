@@ -2,3 +2,14 @@
 {"contributors":[],"silentsave":true,"ts":1366228333576,"patch":[[{"diffs":[[0,"ackends."],[-1,"my"],[0,"sql"],[1,"ite3"],[0,"', # Add"]],"start1":223,"start2":223,"length1":21,"length2":23}]],"length":5413,"saved":false}
 {"ts":1366228498512,"patch":[[{"diffs":[[0,"merica/B"],[-1,"o"],[0,"g"],[1,"o"],[0,"ota'\n\n# "]],"start1":1192,"start2":1192,"length1":18,"length2":18}]],"length":5413,"saved":false}
 {"ts":1366228510995,"patch":[[{"diffs":[[0,"merica/B"],[-1,"g"],[0,"o"],[1,"g"],[0,"ota'\n\n# "]],"start1":1192,"start2":1192,"length1":18,"length2":18}]],"length":5413,"saved":false}
+{"ts":1366235522370,"patch":[[{"diffs":[[0,"e admin:\n   "],[-1," #"],[0," 'django.con"]],"start1":4421,"start2":4421,"length1":26,"length2":24}]],"length":5411,"saved":false}
+{"ts":1366235528182,"patch":[[{"diffs":[[0,"s',\n"],[-1,"    # Uncomment the next line to enable the admin:\n"],[0,"    "]],"start1":4375,"start2":4375,"length1":59,"length2":8}]],"length":5360,"saved":false}
+{"ts":1366235529215,"patch":[[{"diffs":[[0,"admin',\n"],[1,"    \n"],[0,"    # Un"]],"start1":4399,"start2":4399,"length1":16,"length2":21}]],"length":5365,"saved":false}
+{"ts":1366235531045,"patch":[[{"diffs":[[0,"n',\n    "],[1,"'"],[0,"\n    # U"]],"start1":4403,"start2":4403,"length1":16,"length2":17}]],"length":5366,"saved":false}
+{"ts":1366235532047,"patch":[[{"diffs":[[0,"',\n    '"],[1,"'"],[0,"\n    # U"]],"start1":4404,"start2":4404,"length1":16,"length2":17}]],"length":5367,"saved":false}
+{"ts":1366235535139,"patch":[[{"diffs":[[0,"',\n    '"],[1,"ourweb"],[0,"'\n    # "]],"start1":4404,"start2":4404,"length1":16,"length2":22}]],"length":5373,"saved":false}
+{"ts":1366235537355,"patch":[[{"diffs":[[0," 'ourweb"],[1,"catalog"],[0,"'\n    # "]],"start1":4410,"start2":4410,"length1":16,"length2":23}]],"length":5380,"saved":false}
+{"ts":1366235538299,"patch":[[{"diffs":[[0,"bcatalog"],[1,"."],[0,"'\n    # "]],"start1":4417,"start2":4417,"length1":16,"length2":17}]],"length":5381,"saved":false}
+{"ts":1366235541090,"patch":[[{"diffs":[[0,"catalog."],[1,"backend"],[0,"'\n    # "]],"start1":4418,"start2":4418,"length1":16,"length2":23}]],"length":5388,"saved":false}
+{"ts":1366235626663,"patch":[[{"diffs":[[0,"   '"],[-1,"ourwebcatalog."],[0,"back"]],"start1":4408,"start2":4408,"length1":22,"length2":8}]],"length":5374,"saved":false}
+{"ts":1366235630166,"patch":[[{"diffs":[[0,"backend'"],[1,","],[0,"\n    # U"]],"start1":4412,"start2":4412,"length1":16,"length2":17}]],"length":5375,"saved":false}

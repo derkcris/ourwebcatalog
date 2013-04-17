@@ -1,0 +1,100 @@
+{"ts":1366232777183,"silentsave":true,"restoring":false,"patch":[[{"diffs":[[1,"from django.db import models\n\n# Create your models here.\n"]],"start1":0,"start2":0,"length1":0,"length2":57}]],"length":57}
+{"contributors":[],"silentsave":true,"ts":1366232743354,"patch":[[{"diffs":[[0,"ls\n\n"],[-1,"# Create your models here."],[0,"\n"]],"start1":26,"start2":26,"length1":31,"length2":5}]],"length":31,"saved":false}
+{"ts":1366232769944,"patch":[[{"diffs":[[0,"odels\n\n\n"],[1,"class "]],"start1":23,"start2":23,"length1":8,"length2":14}]],"length":37,"saved":false}
+{"ts":1366232772415,"patch":[[{"diffs":[[0,"\n\nclass "],[1,"Categor"]],"start1":29,"start2":29,"length1":8,"length2":15}]],"length":44,"saved":false}
+{"ts":1366232773326,"patch":[[{"diffs":[[0," Categor"],[1,"y"]],"start1":36,"start2":36,"length1":8,"length2":9}]],"length":45,"saved":false}
+{"ts":1366232774315,"patch":[[{"diffs":[[0,"Category"],[1,"\n"]],"start1":37,"start2":37,"length1":8,"length2":9}]],"length":46,"saved":false}
+{"ts":1366232778186,"patch":[[{"diffs":[[0,"Category"],[-1,"\n"],[1,"()"]],"start1":37,"start2":37,"length1":9,"length2":10}]],"length":47,"saved":false}
+{"ts":1366232781529,"patch":[[{"diffs":[[0,"ategory("],[1,"models."],[0,")"]],"start1":38,"start2":38,"length1":9,"length2":16}]],"length":54,"saved":false}
+{"ts":1366232783881,"patch":[[{"diffs":[[0,"(models."],[1,"Model"],[0,")"]],"start1":45,"start2":45,"length1":9,"length2":14}]],"length":59,"saved":false}
+{"ts":1366232786768,"patch":[[{"diffs":[[0,"s.Model)"],[1,":\n    "]],"start1":51,"start2":51,"length1":8,"length2":14}]],"length":65,"saved":false}
+{"ts":1366232954978,"patch":[[{"diffs":[[0,"l):\n    "],[1,"name =)"]],"start1":57,"start2":57,"length1":8,"length2":15}]],"length":72,"saved":false}
+{"ts":1366232955939,"patch":[[{"diffs":[[0,"  name ="],[-1,")"]],"start1":63,"start2":63,"length1":9,"length2":8}]],"length":71,"saved":false}
+{"ts":1366232957784,"patch":[[{"diffs":[[0,"  name ="],[1," "]],"start1":63,"start2":63,"length1":8,"length2":9}]],"length":72,"saved":false}
+{"ts":1366232961158,"patch":[[{"diffs":[[0," name = "],[1,"models."]],"start1":64,"start2":64,"length1":8,"length2":15}]],"length":79,"saved":false}
+{"ts":1366232964231,"patch":[[{"diffs":[[0,"me = models."],[1,"Char"]],"start1":67,"start2":67,"length1":12,"length2":16}]],"length":83,"saved":false}
+{"ts":1366232966715,"patch":[[{"diffs":[[0,"els.Char"],[1,"Field("]],"start1":75,"start2":75,"length1":8,"length2":14}]],"length":89,"saved":false}
+{"ts":1366232967889,"patch":[[{"diffs":[[0,"arField("],[1,");"]],"start1":81,"start2":81,"length1":8,"length2":10}]],"length":91,"saved":false}
+{"ts":1366232969349,"patch":[[{"diffs":[[0,"ld()"],[-1,";"]],"start1":86,"start2":86,"length1":5,"length2":4}]],"length":90,"saved":false}
+{"ts":1366232976205,"patch":[[{"diffs":[[0,"arField("],[1,"max_length"],[0,")"]],"start1":81,"start2":81,"length1":9,"length2":19}]],"length":100,"saved":false}
+{"ts":1366232979299,"patch":[[{"diffs":[[0,"x_length"],[1,"="],[0,")"]],"start1":91,"start2":91,"length1":9,"length2":10}]],"length":101,"saved":false}
+{"ts":1366232981505,"patch":[[{"diffs":[[0,"_length="],[1,"1"],[0,")"]],"start1":92,"start2":92,"length1":9,"length2":10}]],"length":102,"saved":false}
+{"ts":1366232983007,"patch":[[{"diffs":[[0,"length=1"],[1,"00"],[0,")"]],"start1":93,"start2":93,"length1":9,"length2":11}]],"length":104,"saved":false}
+{"ts":1366232985173,"patch":[[{"diffs":[[0,"gth=100)"],[1,"\n    "]],"start1":96,"start2":96,"length1":8,"length2":13}]],"length":109,"saved":false}
+{"ts":1366233010071,"patch":[[{"diffs":[[0,"th=100)\n    "],[1,"descrip"]],"start1":97,"start2":97,"length1":12,"length2":19}]],"length":116,"saved":false}
+{"ts":1366233013162,"patch":[[{"diffs":[[0," descrip"],[1,"tion = models.C"]],"start1":108,"start2":108,"length1":8,"length2":23}]],"length":131,"saved":false}
+{"ts":1366233014233,"patch":[[{"diffs":[[0,"ption = models.C"],[1,"har"]],"start1":115,"start2":115,"length1":16,"length2":19}]],"length":134,"saved":false}
+{"ts":1366233016117,"patch":[[{"diffs":[[0,"iption = models.Char"],[1,"Field"]],"start1":114,"start2":114,"length1":20,"length2":25}]],"length":139,"saved":false}
+{"ts":1366233017861,"patch":[[{"diffs":[[0,"ption = models.CharField"],[1,"()"]],"start1":115,"start2":115,"length1":24,"length2":26}]],"length":141,"saved":false}
+{"ts":1366233019207,"patch":[[{"diffs":[[0,"arField("],[1,"max_"],[0,")"]],"start1":132,"start2":132,"length1":9,"length2":13}]],"length":145,"saved":false}
+{"ts":1366233020720,"patch":[[{"diffs":[[0,"eld(max_"],[1,"leng"],[0,")"]],"start1":136,"start2":136,"length1":9,"length2":13}]],"length":149,"saved":false}
+{"ts":1366233022852,"patch":[[{"diffs":[[0,"max_leng"],[1,"ht"],[0,")"]],"start1":140,"start2":140,"length1":9,"length2":11}]],"length":151,"saved":false}
+{"ts":1366233023798,"patch":[[{"diffs":[[0,"x_lenght"],[1,"="],[0,")"]],"start1":142,"start2":142,"length1":9,"length2":10}]],"length":152,"saved":false}
+{"ts":1366233025042,"patch":[[{"diffs":[[0,"_lenght="],[-1,")"],[1,"200)\n    "]],"start1":143,"start2":143,"length1":9,"length2":17}]],"length":160,"saved":false}
+{"ts":1366233035699,"patch":[[{"diffs":[[0,"lenght=200)\n    "],[1,"main"]],"start1":144,"start2":144,"length1":16,"length2":20}]],"length":164,"saved":false}
+{"ts":1366233040542,"patch":[[{"diffs":[[0,"    "],[-1,"main"]],"start1":156,"start2":156,"length1":8,"length2":4}]],"length":160,"saved":false}
+{"ts":1366233043799,"patch":[[{"diffs":[[0,"lenght=200)\n    "],[1,"main"]],"start1":144,"start2":144,"length1":16,"length2":20}]],"length":164,"saved":false}
+{"ts":1366233047095,"patch":[[{"diffs":[[0,"    main"],[1,"Cate"]],"start1":156,"start2":156,"length1":8,"length2":12}]],"length":168,"saved":false}
+{"ts":1366233048381,"patch":[[{"diffs":[[0,"    mainCate"],[1,"gory"]],"start1":156,"start2":156,"length1":12,"length2":16}]],"length":172,"saved":false}
+{"ts":1366233050017,"patch":[[{"diffs":[[0,"    mainCategory"],[1," = "]],"start1":156,"start2":156,"length1":16,"length2":19}]],"length":175,"saved":false}
+{"ts":1366233055743,"patch":[[{"diffs":[[0,"egory = "],[1,"models."]],"start1":167,"start2":167,"length1":8,"length2":15}]],"length":182,"saved":false}
+{"ts":1366233058457,"patch":[[{"diffs":[[0,"tegory = models."],[1,"Foreing"]],"start1":166,"start2":166,"length1":16,"length2":23}]],"length":189,"saved":false}
+{"ts":1366233061209,"patch":[[{"diffs":[[0,"ls.Forei"],[-1,"n"],[0,"g"],[1,"nKe"]],"start1":179,"start2":179,"length1":10,"length2":12}]],"length":191,"saved":false}
+{"ts":1366233062876,"patch":[[{"diffs":[[0,"oreignKe"],[1,"y()"]],"start1":183,"start2":183,"length1":8,"length2":11}]],"length":194,"saved":false}
+{"ts":1366233066178,"patch":[[{"diffs":[[0,"eignKey("],[1,"Caregory"],[0,")"]],"start1":185,"start2":185,"length1":9,"length2":17}]],"length":202,"saved":false}
+{"ts":1366233070212,"patch":[[{"diffs":[[0,"gnKey(Ca"],[-1,"r"],[1,"t"],[0,"egory)"]],"start1":187,"start2":187,"length1":15,"length2":15}]],"length":202,"saved":false}
+{"ts":1366233071867,"patch":[[{"diffs":[[0,"ategory)"],[1,"\n    \n    "]],"start1":194,"start2":194,"length1":8,"length2":18}]],"length":212,"saved":false}
+{"ts":1366233073083,"patch":[[{"diffs":[[0,"ry)\n    "],[-1,"\n"],[0,"    "]],"start1":199,"start2":199,"length1":13,"length2":12}]],"length":211,"saved":false}
+{"ts":1366233201553,"patch":[[{"diffs":[[0,"ry)\n    "],[-1,"    "],[1,"\n"]],"start1":199,"start2":199,"length1":12,"length2":9}]],"length":208,"saved":false}
+{"ts":1366233216617,"patch":[[{"diffs":[[0,"y)\n    \n"],[1,"class A"]],"start1":200,"start2":200,"length1":8,"length2":15}]],"length":215,"saved":false}
+{"ts":1366233218506,"patch":[[{"diffs":[[0,"\nclass A"],[1,"rticle()"]],"start1":207,"start2":207,"length1":8,"length2":16}]],"length":223,"saved":false}
+{"ts":1366233220817,"patch":[[{"diffs":[[0,"Article("],[1,"models."],[0,")"]],"start1":214,"start2":214,"length1":9,"length2":16}]],"length":230,"saved":false}
+{"ts":1366233222254,"patch":[[{"diffs":[[0,"(models."],[1,"Model"],[0,")"]],"start1":221,"start2":221,"length1":9,"length2":14}]],"length":235,"saved":false}
+{"ts":1366233223380,"patch":[[{"diffs":[[0,"rticle(models.Model)"],[1,":\n    "]],"start1":215,"start2":215,"length1":20,"length2":26}]],"length":241,"saved":false}
+{"ts":1366233228114,"patch":[[{"diffs":[[0," Article(models.Model):\n    "],[1,"category"]],"start1":213,"start2":213,"length1":28,"length2":36}]],"length":249,"saved":false}
+{"ts":1366233253574,"patch":[[{"diffs":[[0,"    category"],[1," = model"]],"start1":237,"start2":237,"length1":12,"length2":20}]],"length":257,"saved":false}
+{"ts":1366233254577,"patch":[[{"diffs":[[0,"    category = model"],[1,"s."]],"start1":237,"start2":237,"length1":20,"length2":22}]],"length":259,"saved":false}
+{"ts":1366233258381,"patch":[[{"diffs":[[0,":\n    category = models."],[1,"ForeignK"]],"start1":235,"start2":235,"length1":24,"length2":32}]],"length":267,"saved":false}
+{"ts":1366233259742,"patch":[[{"diffs":[[0,"  category = models.ForeignK"],[1,"ey()"]],"start1":239,"start2":239,"length1":28,"length2":32}]],"length":271,"saved":false}
+{"ts":1366233261819,"patch":[[{"diffs":[[0,"eignKey("],[1,"Categor"],[0,")"]],"start1":262,"start2":262,"length1":9,"length2":16}]],"length":278,"saved":false}
+{"ts":1366233263088,"patch":[[{"diffs":[[0,"(Categor"],[-1,")"],[1,"y)\n    "]],"start1":269,"start2":269,"length1":9,"length2":15}]],"length":284,"saved":false}
+{"ts":1366233296928,"patch":[[{"diffs":[[0,"ls.ForeignKey(Category)\n    "],[1,"name = models.Chy"]],"start1":256,"start2":256,"length1":28,"length2":45}]],"length":301,"saved":false}
+{"ts":1366233298926,"patch":[[{"diffs":[[0,"odels.Ch"],[-1,"y"],[1,"arFi"]],"start1":292,"start2":292,"length1":9,"length2":12}]],"length":304,"saved":false}
+{"ts":1366233300084,"patch":[[{"diffs":[[0,"ry)\n    name = models.CharFi"],[1,"eld()"]],"start1":276,"start2":276,"length1":28,"length2":33}]],"length":309,"saved":false}
+{"ts":1366233305657,"patch":[[{"diffs":[[0,"arField("],[1,"max_length"],[0,")"]],"start1":300,"start2":300,"length1":9,"length2":19}]],"length":319,"saved":false}
+{"ts":1366233307906,"patch":[[{"diffs":[[0,"x_length"],[-1,")"],[1,"=100)\n    "]],"start1":310,"start2":310,"length1":9,"length2":18}]],"length":328,"saved":false}
+{"ts":1366233310750,"patch":[[{"diffs":[[0,"arField(max_length=100)\n    "],[1,"descrip"]],"start1":300,"start2":300,"length1":28,"length2":35}]],"length":335,"saved":false}
+{"ts":1366233312037,"patch":[[{"diffs":[[0,"(max_length=100)\n    descrip"],[1,"tion "]],"start1":307,"start2":307,"length1":28,"length2":33}]],"length":340,"saved":false}
+{"ts":1366233314311,"patch":[[{"diffs":[[0,"length=100)\n    description "],[1,"= models."]],"start1":312,"start2":312,"length1":28,"length2":37}]],"length":349,"saved":false}
+{"ts":1366233315424,"patch":[[{"diffs":[[0,"0)\n    description = models."],[1,"ch"]],"start1":321,"start2":321,"length1":28,"length2":30}]],"length":351,"saved":false}
+{"ts":1366233318543,"patch":[[{"diffs":[[0,"els."],[-1,"ch"],[1,"CharField"]],"start1":345,"start2":345,"length1":6,"length2":13}]],"length":358,"saved":false}
+{"ts":1366233319942,"patch":[[{"diffs":[[0,"scription = models.CharField"],[1,"()"]],"start1":330,"start2":330,"length1":28,"length2":30}]],"length":360,"saved":false}
+{"ts":1366233322301,"patch":[[{"diffs":[[0,"arField("],[1,"max"],[0,")"]],"start1":351,"start2":351,"length1":9,"length2":12}]],"length":363,"saved":false}
+{"ts":1366233324311,"patch":[[{"diffs":[[0,"ield(max"],[1,"_l"],[0,")"]],"start1":354,"start2":354,"length1":9,"length2":11}]],"length":365,"saved":false}
+{"ts":1366233325246,"patch":[[{"diffs":[[0,"ld(max_l"],[1,"en"],[0,")"]],"start1":356,"start2":356,"length1":9,"length2":11}]],"length":367,"saved":false}
+{"ts":1366233326579,"patch":[[{"diffs":[[0,"(max_len"],[1,"gh"],[0,")"]],"start1":358,"start2":358,"length1":9,"length2":11}]],"length":369,"saved":false}
+{"ts":1366233328961,"patch":[[{"diffs":[[0,"ax_lengh"],[1,"t"],[0,")"]],"start1":360,"start2":360,"length1":9,"length2":10}]],"length":370,"saved":false}
+{"ts":1366233331904,"patch":[[{"diffs":[[0,"x_lenght"],[-1,")"],[1,"=200)\n    "]],"start1":361,"start2":361,"length1":9,"length2":18}]],"length":379,"saved":false}
+{"ts":1366233376619,"patch":[[{"diffs":[[0,"arField(max_lenght=200)\n"],[-1,"    "],[1,"\nc"]],"start1":351,"start2":351,"length1":28,"length2":26}]],"length":377,"saved":false}
+{"ts":1366233377883,"patch":[[{"diffs":[[0,"=200)\n\nc"],[1,"lass"]],"start1":369,"start2":369,"length1":8,"length2":12}]],"length":381,"saved":false}
+{"ts":1366233380856,"patch":[[{"diffs":[[0,"=200)\n\nclass"],[1," Item"]],"start1":369,"start2":369,"length1":12,"length2":17}]],"length":386,"saved":false}
+{"ts":1366233384223,"patch":[[{"diffs":[[0,"ass Item"],[1,"(n)"]],"start1":378,"start2":378,"length1":8,"length2":11}]],"length":389,"saved":false}
+{"ts":1366233385911,"patch":[[{"diffs":[[0,"s Item(n"],[1,"ode"],[0,")"]],"start1":380,"start2":380,"length1":9,"length2":12}]],"length":392,"saved":false}
+{"ts":1366233394835,"patch":[[{"diffs":[[0,"tem("],[-1,"n"],[1,"m"],[0,"ode"],[1,"ls.M"],[0,")"]],"start1":383,"start2":383,"length1":9,"length2":13}]],"length":396,"saved":false}
+{"ts":1366233396109,"patch":[[{"diffs":[[0,"models.M"],[1,"odel"],[0,")"]],"start1":387,"start2":387,"length1":9,"length2":13}]],"length":400,"saved":false}
+{"ts":1366233397172,"patch":[[{"diffs":[[0,"s Item(models.Model)"],[1,":\n    "]],"start1":380,"start2":380,"length1":20,"length2":26}]],"length":406,"saved":false}
+{"ts":1366233400906,"patch":[[{"diffs":[[0,"ass Item(models.Model):\n    "],[1,"article"]],"start1":378,"start2":378,"length1":28,"length2":35}]],"length":413,"saved":false}
+{"ts":1366233402514,"patch":[[{"diffs":[[0,"\n    article"],[1," = "]],"start1":401,"start2":401,"length1":12,"length2":15}]],"length":416,"saved":false}
+{"ts":1366233407247,"patch":[[{"diffs":[[0,"  article = "],[1,"models.Fo"]],"start1":404,"start2":404,"length1":12,"length2":21}]],"length":425,"saved":false}
+{"ts":1366233408410,"patch":[[{"diffs":[[0," article = models.Fo"],[1,"reign"]],"start1":405,"start2":405,"length1":20,"length2":25}]],"length":430,"saved":false}
+{"ts":1366233411397,"patch":[[{"diffs":[[0,"article = models.Foreign"],[1,"Key()"]],"start1":406,"start2":406,"length1":24,"length2":29}]],"length":435,"saved":false}
+{"ts":1366233415279,"patch":[[{"diffs":[[0,"eignKey("],[1,"Article"],[0,")"]],"start1":426,"start2":426,"length1":9,"length2":16}]],"length":442,"saved":false}
+{"ts":1366233416413,"patch":[[{"diffs":[[0,"Article)"],[1,"\n    "]],"start1":434,"start2":434,"length1":8,"length2":13}]],"length":447,"saved":false}
+{"ts":1366233427895,"patch":[[{"diffs":[[0,"rticle)\n    "],[1,"i"]],"start1":435,"start2":435,"length1":12,"length2":13}]],"length":448,"saved":false}
+{"ts":1366233429539,"patch":[[{"diffs":[[0,"le)\n    "],[-1,"i"]],"start1":439,"start2":439,"length1":9,"length2":8}]],"length":447,"saved":false}
+{"ts":1366233434718,"patch":[[{"diffs":[[0,"rticle)\n    "],[1,"name = models.CharField(max_length=100)\n    description = models.CharField(max_lenght=200)"]],"start1":435,"start2":435,"length1":12,"length2":102}]],"length":537,"saved":false}
+{"ts":1366233453946,"patch":[[{"diffs":[[0,"ls.CharField(max_lenght=200)"],[1,"\n    \n"]],"start1":509,"start2":509,"length1":28,"length2":34}]],"length":543,"saved":false}
+{"ts":1366233457062,"patch":[[{"diffs":[[0,"ht=200)\n"],[-1,"    "],[0,"\n"]],"start1":530,"start2":530,"length1":13,"length2":9}]],"length":539,"saved":false}
+{"ts":1366234052307,"patch":[[{"diffs":[[0,"ls\n\n"],[-1,"\nclass Category(models.Model):\n    name = models.CharField(max_length=100)\n    description = models.CharField(max_lenght=200)\n    mainCategory = models.ForeignKey(Category)\n    \nclass Article(models.Model):\n    category = models.ForeignKey(Category)\n    name = models.CharField(max_length=100)\n    description = models.CharField(max_lenght=200)\n\nclass Item(models.Model):\n    article = models.ForeignKey(Article)\n    name = models.CharField(max_length=100)\n    description = models.CharField(max_lenght=200)\n\n"]],"start1":26,"start2":26,"length1":513,"length2":4}]],"length":30,"saved":false}
+{"ts":1366234065158,"patch":[[{"diffs":[[0,"models\n\n"],[1,"sd"]],"start1":22,"start2":22,"length1":8,"length2":10}]],"length":32,"saved":false}
+{"ts":1366234068395,"patch":[[{"diffs":[[0,"els\n"],[-1,"\nsd"]],"start1":25,"start2":25,"length1":7,"length2":4}]],"length":29,"saved":false}
