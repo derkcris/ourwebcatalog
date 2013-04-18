@@ -1,3 +1,8 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
 {{ article }}
 
 {% if items %}
@@ -11,4 +16,6 @@
 {% else %}
     <p>No items availables.</p>
 {% endif %}
+
+{% endblock %}
 

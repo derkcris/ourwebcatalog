@@ -1,3 +1,7 @@
+{% extends "base.html" %}
+
+{% block content %}
+
 {% if articles %}
     <ul>
         {% for article in articles %}
@@ -9,3 +13,5 @@
 {% else %}
     <p>No articles availables.</p>
 {% endif %}
+
+{% endblock %}
