@@ -6,15 +6,15 @@ from django.contrib.auth.models import User
 class Dependency(models.Model):
     name = models.CharField(max_length=100)
     description = models.CharField(max_length=200)
-    
+
     def __str__(self):
         return self.name
 
-# User 
+# User
 class UserProfile(models.Model):
     user = models.OneToOneField(User)
     dependency = models.ForeignKey(Dependency)
-    
+
     def __str__(self):
         return self.user.get_full_name()
 
@@ -23,7 +23,7 @@ class Category(models.Model):
     name = models.CharField(max_length=100)
     description = models.CharField(max_length=200)
     main_category_id = models.PositiveSmallIntegerField()
-    
+
     def __str__(self):
         return self.name
 
@@ -32,7 +32,7 @@ class Article(models.Model):
     category = models.ForeignKey(Category)
     name = models.CharField(max_length=100)
     description = models.CharField(max_length=200)
-    
+
     def __str__(self):
         return self.name
 
@@ -48,10 +48,10 @@ class Item(models.Model):
     name = models.CharField(max_length=100)
     description = models.CharField(max_length=200)
     state = models.CharField(max_length=1)
-    
+
     def __str__(self):
         return self.article.name + ' - ' + self.name
-        
+
     def is_available(self):
         return self.state == STATE_AVAILABLE
 
@@ -63,12 +63,23 @@ class Loan(models.Model):
     end_date = models.DateTimeField('End Date')
     estimated_end_date = models.DateTimeField('Estimated end date')
     observations = models.CharField(max_length=200)
-    
+
     def __str__(self):
         return self.item
 
 
 # Admin class
-admin.site.register(Dependency)
+class DependencyAdmin(admin.ModelAdmin):
+    fields = ['name', 'description']
+
+class UserProfileAdmin(admin.ModelAdmin):
+    fields = ['user', 'dependency']
+
+class CategoryAdmin(admin.ModelAdmin):
+    fields = ['name', 'description']
+
+
+# Register class on Admin module
+admin.site.register(Dependency, DependencyAdmin)
 admin.site.register(UserProfile)
 admin.site.register(Category)
