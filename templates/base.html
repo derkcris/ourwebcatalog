@@ -9,25 +9,43 @@
     </head>
 
     <body>
-        <div id="sidebar">
-            {% block sidebar %}
-            <ul>
-                <li>
-                    <a href="/">Home</a>
-                </li>
-                <li>
-                    <a href="/loans/">Catalog</a>
-                </li>
-                <li>
-                    <a href="/admin/">Admin</a>
-                </li>
-            </ul>
-            {% endblock %}
+        <div id="header">
+            <header id="site-header">
+                <div id="sidebar">
+                    <div class="sidebar-inner">
+                        {% block sidebar %}
+                        <ul class="main-menu">
+                            <li class="logo">
+                                <a href="/">Home</a>
+                            </li>
+                            <li class="menu-right logout">
+                                <a href="/logout">Logout</a>
+                            </li>
+                            <li class="menu-right user">
+                                <a href="/user">User</a>
+                            </li>
+                            <li class="menu loans">
+                                <a href="/loans/">Catalog</a>
+                            </li>
+                            <li class="menu admin">
+                                <a href="/admin/">Admin</a>
+                            </li>
+                        </ul>
+                        {% endblock %}
+                    </div>
+                </div>
+            </header>
         </div>
 
         <div id="content">
             {% block content %}
             {% endblock %}
+        </div>
+        <div id="footer">
+            <footer id="site-footer">
+                {% block footer %}
+                {% endblock %}
+            </footer>
         </div>
     </body>
 </html>
