@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 # Dependency of user
 class Dependency(models.Model):
     name = models.CharField(max_length=100)
-    description = models.CharField(max_length=200)
+    description = models.CharField(max_length=200, null=True)
 
     def __str__(self):
         return self.name
@@ -21,8 +21,11 @@ class UserProfile(models.Model):
 # Category of Article
 class Category(models.Model):
     name = models.CharField(max_length=100)
-    description = models.CharField(max_length=200)
-    main_category_id = models.PositiveSmallIntegerField()
+    description = models.CharField(max_length=200, null=True)
+    main_category = models.ForeignKey('loans.Category',
+        blank=True,
+        null=True,
+        on_delete=models.SET_NULL)
 
     def __str__(self):
         return self.name
@@ -31,23 +34,32 @@ class Category(models.Model):
 class Article(models.Model):
     category = models.ForeignKey(Category)
     name = models.CharField(max_length=100)
-    description = models.CharField(max_length=200)
+    description = models.CharField(max_length=200, null=True)
 
     def __str__(self):
         return self.name
 
-# States choices
-STATE_AVAILABLE = 'A'
-STATE_LENT = 'L'
-STATE_LOST = 'O'
-STATE_NOT_AVAILABLE = 'N'
 
 # Item
 class Item(models.Model):
+    # States choices
+    STATE_AVAILABLE = 'A'
+    STATE_LENT = 'L'
+    STATE_LOST = 'O'
+    STATE_NOT_AVAILABLE = 'N'
+    STATE_CHOICES = (
+        (STATE_AVAILABLE, 'Available'),
+        (STATE_LENT, 'Lent'),
+        (STATE_LOST, 'Lost'),
+        (STATE_NOT_AVAILABLE, 'Not available'),
+    )
+
     article = models.ForeignKey(Article)
     name = models.CharField(max_length=100)
-    description = models.CharField(max_length=200)
-    state = models.CharField(max_length=1)
+    description = models.CharField(max_length=200, null=True)
+    state = models.CharField(max_length=1,
+        choices=STATE_CHOICES,
+        default=STATE_AVAILABLE)
 
     def __str__(self):
         return self.article.name + ' - ' + self.name
@@ -60,9 +72,9 @@ class Loan(models.Model):
     item = models.ForeignKey(Item)
     user = models.ForeignKey(UserProfile)
     start_date = models.DateTimeField('Start Date')
-    end_date = models.DateTimeField('End Date')
-    estimated_end_date = models.DateTimeField('Estimated end date')
-    observations = models.CharField(max_length=200)
+    end_date = models.DateTimeField('End Date', null=True)
+    estimated_end_date = models.DateTimeField('Estimated end date', null=True)
+    observations = models.CharField(max_length=200, null=True)
 
     def __str__(self):
         return self.item
@@ -78,8 +90,18 @@ class UserProfileAdmin(admin.ModelAdmin):
 class CategoryAdmin(admin.ModelAdmin):
     fields = ['name', 'description']
 
+class ArticleAdmin(admin.ModelAdmin):
+    fields = ['category', 'name', 'description']
+
+class ItemAdmin(admin.ModelAdmin):
+    fields = ['article', 'name', 'description', 'state']
+
+
 
 # Register class on Admin module
 admin.site.register(Dependency, DependencyAdmin)
-admin.site.register(UserProfile)
-admin.site.register(Category)
+admin.site.register(UserProfile, UserProfileAdmin)
+admin.site.register(Category, CategoryAdmin)
+admin.site.register(Article, ArticleAdmin)
+admin.site.register(Item, ItemAdmin)
+
