@@ -16,6 +16,8 @@
 
 
     <div class="button-bar">
+        <a href="{% url 'category_subcategory_add' category.id %}" class="button">Add Subcategory</a>
+        <a href="{% url 'category_article_add' category.id %}" class="button">Add Article</a>
         <a href="{% url 'category_remove' category.id %}" class="button"
             onclick="return confirm('Are you sure to delete {{ category.name }}')">
             Remove
@@ -62,7 +64,7 @@
     </table>
 
     <h3>Subcategories</h3>
-    {% if category.main_category_set.all %}
+    {% if subcategories %}
     <table>
         <thead>
             <tr>
@@ -73,7 +75,7 @@
             </tr>
         </thead>
         <tbody>
-            {% for c in category.main_category_set.all %}
+            {% for c in subcategories %}
             <tr>
                 <td>
                     <a href="{% url 'category' c.id %}">

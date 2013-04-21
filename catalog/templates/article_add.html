@@ -45,7 +45,7 @@
                             <span>Category *</span>
                             <select name="category">
                                 {% for category in categories %}
-                                    {% if article.caregory and article.category.id == caregory.id %}
+                                    {% if article.category and article.category.id == category.id %}
                                         <option value="{{ category.id }}" selected>{{ category }}</option>
                                     {% else %}
                                         <option value="{{ category.id }}">{{ category }}</option>

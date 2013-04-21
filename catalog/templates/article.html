@@ -3,7 +3,14 @@
 {% block content %}
 
 <div class="article">
-    <h2>Article {{ article.name }}</h2>
+    <h2>
+        Article {{ article.name }}
+        <span>
+            from <a href="{% url 'category' article.category.id %}">
+                        {{ article.category.name }}
+                </a>
+        </span>
+    </h2>
 
     <div class="button-bar">
         <a href="{% url 'item_add' article.id %}" class="button">Add Item</a>
@@ -61,31 +68,32 @@
             <tr>
                 <td>Name</td>
                 <td>Description</td>
-                <td>Available</td>
+                <td>Status</td>
+                <td>Condition</td>
             </tr>
         </thead>
         <tbody>
             {% for item in article.item_set.all %}
             <tr>
                 <td>
-                    <span>
+                    <a href="{% url 'item' item.id %}">
                         {{ item.name }}
-                    </span>
+                    </a>
                 </td>
                 <td>
-                    <span>
+                    <a href="{% url 'item' item.id %}">
                         {{ item.description }}
-                    </span>
+                    </a>
                 </td>
                 <td>
-                    <span>
-                        {{ item.is_available }}
-                    </span>
+                    <a href="{% url 'item' item.id %}">
+                        {{ item.get_state }}
+                    </a>
                 </td>
                 <td>
-                    <span>
-                        {{ item.item_set.count }}
-                    </span>
+                    <a href="{% url 'item' item.id %}">
+                        {{ item.get_condition }}
+                    </a>
                 </td>
             </tr>
             {% endfor %}

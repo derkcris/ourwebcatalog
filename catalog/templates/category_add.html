@@ -46,10 +46,12 @@
                             <select name="main_category">
                                 <option value='0'></option>
                                 {% for c in categories %}
-                                    {% if category.main_category and category.main_category.id == c.id %}
-                                        <option value="{{ c.id }}" selected>{{ c }}</option>
-                                    {% else %}
-                                        <option value="{{ c.id }}">{{ c }}</option>
+                                    {% if category.id.null or category.id != c.id %}
+                                        {% if category.main_category and category.main_category.id == c.id %}
+                                            <option value="{{ c.id }}" selected>{{ c }}</option>
+                                        {% else %}
+                                            <option value="{{ c.id }}">{{ c }}</option>
+                                        {% endif %}
                                     {% endif %}
                                 {% endfor %}
                             </select>

@@ -2,8 +2,64 @@
 
 {% block content %}
 
+<div class="article">
+    <h2>
+        Item {{ item.name }}
+        <span>
+            from <a href="{% url 'article' item.article.id %}">
+                        {{ item.article.name }}
+                </a>
+        </span>
+    </h2>
 
-{{ item }}
+    <div class="button-bar">
+        <a href="{% url 'item_remove' item.id %}" class="button"
+            onclick="return confirm('Are you sure to delete {{ item.name }}')">
+            Remove
+        </a>
+        <a href="{% url 'item_edit' item.id %}" class="button">Edit</a>
+        <a href="{% url 'article' item.article.id %}">Back</a>
+    </div>
+
+    <table class="form">
+        <tbody>
+            <tr>
+                <td>
+                    <label>
+                        <span>Name</span>
+                        <input type="text" name="item_name"
+                            value="{{ item.name }}" disabled>
+                    </label>
+                </td>
+                <td>
+                    <label>
+                        <span>Description</span>
+                        <input type="text" name="item_description"
+                            value="{{ item.description }}" disabled>
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>
+                        <span>State</span>
+                        <input type="text" name="item_state"
+                            value="{{ item.get_state }}" disabled>
+                    </label>
+                </td>
+                <td>
+                    <label>
+                        <span>Condition</span>
+                        <input type="text" name="item_condition"
+                            value="{{ item.get_condition }}" disabled>
+                    </label>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
 
 
 {% endblock %}
+
