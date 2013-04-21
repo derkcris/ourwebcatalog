@@ -1,0 +1,157 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="article">
+    <h2>
+        Category {{ category.name }}
+        {% if category.main_category %}
+        <span>
+            from <a href="{% url 'category' category.main_category.id %}">
+                        {{ category.main_category.name }}
+                </a>
+        </span>
+        {% endif %}
+    </h2>
+
+
+    <div class="button-bar">
+        <a href="{% url 'category_remove' category.id %}" class="button"
+            onclick="return confirm('Are you sure to delete {{ category.name }}')">
+            Remove
+        </a>
+        <a href="{% url 'category_edit' category.id %}" class="button">Edit</a>
+        <a href="{% url 'category_index' %}">Back</a>
+    </div>
+
+    <table class="form">
+        <tbody>
+            <tr>
+                <td>
+                    <label>
+                        <span>Name</span>
+                        <input type="text" name="category_name"
+                            value="{{ category.name }}" disabled>
+                    </label>
+                </td>
+                <td>
+                    <label>
+                        <span>Description</span>
+                        <input type="text" name="category_description"
+                            value="{{ category.description }}" disabled>
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>
+                        <span>Category Father</span>
+                        <input type="text" name="category_category"
+                            value="{{ category.main_category|default:'' }}" disabled>
+                    </label>
+                </td>
+                <td>
+                    <label>
+                        <span>Articles</span>
+                        <input type="text" name="category_article"
+                            value="{{ category.article_set.count }}" disabled>
+                    </label>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Subcategories</h3>
+    {% if category.main_category_set.all %}
+    <table>
+        <thead>
+            <tr>
+                <td>Name</td>
+                <td>Description</td>
+                <td>Main Category</td>
+                <td>Articles</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for c in category.main_category_set.all %}
+            <tr>
+                <td>
+                    <a href="{% url 'category' c.id %}">
+                        {{ c.name }}
+                    </a>
+                </td>
+                <td>
+                    <a href="{% url 'category' c.id %}">
+                        {{ c.description }}
+                    </a>
+                </td>
+                <td>
+                    <a href="{% url 'category' c.id %}">
+                        {{ c.main_category|default:'' }}
+                    </a>
+                </td>
+                <td>
+                    <a href="{% url 'category' c.id %}">
+                        {{ c.article_set.count }}
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    {% else %}
+        <p>No subcategories availables.</p>
+    {% endif %}
+
+
+
+
+    <h3>Articles</h3>
+    {% if category.article_set.all %}
+    <table>
+        <thead>
+            <tr>
+                <td>Name</td>
+                <td>Description</td>
+                <td>Items</td>
+                <td>Items Availables</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for article in category.article_set.all %}
+            <tr>
+                <td>
+                    <a href="{% url 'article' article.id %}">
+                        {{ article.name }}
+                    </a>
+                </td>
+                <td>
+                    <a href="{% url 'article' article.id %}">
+                        {{ article.item_set.count }}
+                    </a>
+                </td>
+                <td>
+                    <a href="{% url 'article' article.id %}">
+                        {{ article.item_set.count }}
+                    </a>
+                </td>
+                <td>
+                    <a href="{% url 'article' article.id %}">
+                        {{ article.item_set.count }}
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    {% else %}
+        <p>No articles availables.</p>
+    {% endif %}
+
+</div>
+
+
+{% endblock %}
+

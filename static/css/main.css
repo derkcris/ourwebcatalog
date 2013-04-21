@@ -37,12 +37,17 @@ h1{
 h2{
     color:                          #067D8F;
     font-size:                      25px;
-    margin:                         10px 0 20px;
+    margin:                         15px 0 20px;
 }
+    h2 span{
+        font-family:                Helvetica, Arial;
+        font-size:                  13px;
+        color:                      #404040;
+    }
 h3{
     color:                          #979797;
     font-size:                      20px;
-    margin:                         10px 0 5px;
+    margin:                         15px 0 5px;
 }
 a{
     text-decoration:                none;

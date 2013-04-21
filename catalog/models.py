@@ -51,7 +51,10 @@ class Category(models.Model):
                                       on_delete=models.SET_NULL)
 
     def __str__(self):
-        return self.name
+        if self.main_category:
+            return self.name + ' (' + self.main_category.name + ')'
+        else:
+            return self.name
 
 
 class Article(models.Model):

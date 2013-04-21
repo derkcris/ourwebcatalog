@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="article">
+    <h2>Categories</h2>
+
+    <div class="button-bar">
+        <a href="{% url 'category_add' %}" class="button">Add Category</a>
+        <a href="{% url 'index' %}" class="button">View Articles</a>
+    </div>
+
+    {% if categories %}
+    <table>
+        <thead>
+            <tr>
+                <td>Name</td>
+                <td>Description</td>
+                <td>Main Category</td>
+                <td>Articles</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for category in categories %}
+            <tr>
+                <td>
+                    <a href="{% url 'category' category.id %}">
+                        {{ category.name }}
+                    </a>
+                </td>
+                <td>
+                    <a href="{% url 'category' category.id %}">
+                        {{ category.description }}
+                    </a>
+                </td>
+                <td>
+                    <a href="{% url 'category' category.id %}">
+                        {{ category.main_category|default:'' }}
+                    </a>
+                </td>
+                <td>
+                    <a href="{% url 'category' category.id %}">
+                        {{ category.article_set.count }}
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    {% else %}
+        <p>No categories availables.</p>
+    {% endif %}
+
+</div>
+
+{% endblock %}
+
+

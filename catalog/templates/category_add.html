@@ -4,20 +4,20 @@
 
 <div class="article">
 
-    <form action="{% url 'article_save' article.id|default:0 %}" method="post">
+    <form action="{% url 'category_save' category.id|default:0 %}" method="post">
         {% csrf_token %}
 
-        {% if article.id %}
-            <h2>Article {{ article.name }}</h2>
+        {% if category.id %}
+            <h2>Category {{ category.name }}</h2>
         {% else %}
-            <h2>New Article</h2>
+            <h2>New Category</h2>
         {% endif %}
 
 
         <div class="button-bar">
             <input type="submit" class="button" value="Save">
-            {% if article.id %}
-                <a href="{% url 'article' article.id %}">Back</a>
+            {% if category.id %}
+                <a href="{% url 'category' category.id %}">Back</a>
             {% else %}
                 <a href="{% url 'index' %}">Back</a>
             {% endif %}
@@ -29,26 +29,27 @@
                     <td>
                         <label>
                             <span>Name *</span>
-                            <input type="text" name="name" value="{{ article.name|default:'' }}" >
+                            <input type="text" name="name" value="{{ category.name|default:'' }}" >
                         </label>
                     </td>
                     <td>
                         <label>
                             <span>Description</span>
-                            <input type="text" name="description" value="{{ article.description|default:'' }}" >
+                            <input type="text" name="description" value="{{ category.description|default:'' }}" >
                         </label>
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <label>
-                            <span>Category *</span>
-                            <select name="category">
-                                {% for category in categories %}
-                                    {% if article.caregory and article.category.id == caregory.id %}
-                                        <option value="{{ category.id }}" selected>{{ category }}</option>
+                            <span>Main Category</span>
+                            <select name="main_category">
+                                <option value='0'></option>
+                                {% for c in categories %}
+                                    {% if category.main_category and category.main_category.id == c.id %}
+                                        <option value="{{ c.id }}" selected>{{ c }}</option>
                                     {% else %}
-                                        <option value="{{ category.id }}">{{ category }}</option>
+                                        <option value="{{ c.id }}">{{ c }}</option>
                                     {% endif %}
                                 {% endfor %}
                             </select>

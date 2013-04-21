@@ -3,10 +3,11 @@
 {% block content %}
 
 <div class="article">
-    <h2>Catalog</h2>
+    <h2>Catalog of Articles</h2>
 
     <div class="button-bar">
         <a href="{% url 'article_add' %}" class="button">Add Article</a>
+        <a href="{% url 'category_index' %}" class="button">View Categories</a>
     </div>
 
     {% if articles %}
