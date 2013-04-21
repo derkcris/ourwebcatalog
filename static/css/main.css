@@ -37,13 +37,16 @@ h1{
 h2{
     color:                          #067D8F;
     font-size:                      25px;
-    margin:                         15px 0 20px;
+    margin:                         10px 0 20px;
 }
     h2 span{
         font-family:                Helvetica, Arial;
         font-size:                  13px;
         color:                      #404040;
     }
+        h2 span a{
+            color:                  #067D8F;
+        }
 h3{
     color:                          #979797;
     font-size:                      20px;
@@ -77,12 +80,15 @@ tbody{
 
 }
     tbody tr:hover{
-        background:                 #EEEEEE;
+        background:                 #252525;
         border-left:                1px solid #CECECE;
         border-right:               1px solid #CECECE;
         border-top:                 1px solid #E0E0E0;
         border-bottom:              1px solid #E0E0E0;
 
+    }
+    tbody tr:hover a{
+        color:                      #FFFFFF;
     }
 tfood{
 
@@ -122,7 +128,7 @@ td{
 }
     .button-bar a{
         font:                       13px/20px Arial;
-        margin:                     0 0 0 5px;
+        margin:                     7px 0 0 5px;
         cursor:                     pointer;
         float:                      right;
         padding:                    3px 7px;
@@ -182,6 +188,9 @@ td{
         .form label select{
             width:                  215px;
         }
+    .form tbody tr:hover{
+        background:                 #CECECE;
+    }
 
 .info_message,
 .success_message,
