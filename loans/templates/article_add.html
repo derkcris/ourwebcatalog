@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="article">
+
+    <form action="{% url 'article_save' %}" method="post">
+        {% csrf_token %}
+
+        {% if article.id %}
+            <h2>{{ article.name }}</h2>
+        {% else %}
+            <h2>New Article</h2>
+        {% endif %}
+
+
+        <div class="button-bar">
+            <input type="submit" class="button" value="Save">
+            <a href="{% url 'article_index' %}">Back</a>
+        </div>
+
+        {% if error_message %}
+            <div class="error_message">
+                <span>{{ error_message }}</span>
+            </div>
+            {% if fields %}
+            <ul>
+                {% for f in fields %}
+                    <li>{{ f }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        {% endif %}
+
+
+        <table class="form">
+            <tbody>
+                <tr>
+                    <td>
+                        <label>
+                            <span>Name *</span>
+                            <input type="text" name="name" value="{{ article.name }}" >
+                        <label>
+                    </td>
+                    <td>
+                        <label>
+                            <span>Description</span>
+                            <input type="text" name="description" value="{{ article.description }}" >
+                        <label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>
+                            <span>Category *</span>
+                            <select name="category">
+                                {% for category in categories %}
+                                    <option value="{{ category.id }}">{{ category }}</option>
+                                {% endfor %}
+                            </select>
+                        <label>
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+
+</div>
+
+
+{% endblock %}
+

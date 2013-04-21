@@ -2,6 +2,18 @@ from django.db import models
 from django.contrib import admin
 from django.contrib.auth.models import User
 
+# States choices
+STATE_AVAILABLE = 'A'
+STATE_LENT = 'L'
+STATE_LOST = 'O'
+STATE_NOT_AVAILABLE = 'N'
+STATE_CHOICES = (
+    (STATE_AVAILABLE, 'Available'),
+    (STATE_LENT, 'Lent'),
+    (STATE_LOST, 'Lost'),
+    (STATE_NOT_AVAILABLE, 'Not available'),
+)
+
 # Dependency of user
 class Dependency(models.Model):
     name = models.CharField(max_length=100)
@@ -39,21 +51,8 @@ class Article(models.Model):
     def __str__(self):
         return self.name
 
-
 # Item
 class Item(models.Model):
-    # States choices
-    STATE_AVAILABLE = 'A'
-    STATE_LENT = 'L'
-    STATE_LOST = 'O'
-    STATE_NOT_AVAILABLE = 'N'
-    STATE_CHOICES = (
-        (STATE_AVAILABLE, 'Available'),
-        (STATE_LENT, 'Lent'),
-        (STATE_LOST, 'Lost'),
-        (STATE_NOT_AVAILABLE, 'Not available'),
-    )
-
     article = models.ForeignKey(Article)
     name = models.CharField(max_length=100)
     description = models.CharField(max_length=200, null=True)

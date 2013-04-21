@@ -2,16 +2,8 @@
 
 {% block content %}
 
-{% if articles %}
-    <ul>
-        {% for article in articles %}
-            <li>
-                <a href="{% url 'article' article.id %}">{{ article.name }}</a>
-            </li>
-        {% endfor %}
-    </ul>
-{% else %}
-    <p>No articles availables.</p>
-{% endif %}
+<div class="column1">
+    <a href="{% url 'article_index'%}">Catalogo</a>
+</div>
 
 {% endblock %}

@@ -2,20 +2,94 @@
 
 {% block content %}
 
+<div class="article">
+    <h2>{{ article.name }}</h2>
 
-{{ article }}
+    <div class="button-bar">
+        <a href="{% url 'item_add' %}" class="button">Add Item</a>
+        <a href="{% url 'item_add' %}" class="button">Edit</a>
+        <a href="{% url 'article_index' %}">Back</a>
+    </div>
 
-{% if items %}
-    <ul>
-        {% for item in items %}
-            <li>
-                <a href="{% url 'item' item.id %}">{{ item.name }}</a>
-            </li>
-        {% endfor %}
-    </ul>
-{% else %}
-    <p>No items availables.</p>
-{% endif %}
+    <table class="form">
+        <tbody>
+            <tr>
+                <td>
+                    <label>
+                        <span>Name</span>
+                        <input type="text" name="article_name" value="{{ article.name }}" disabled>
+                    <label>
+                </td>
+                <td>
+                    <label>
+                        <span>Description</span>
+                        <input type="text" name="article_description" value="{{ article.description }}" disabled>
+                    <label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>
+                        <span>Category</span>
+                        <input type="text" name="article_category" value="{{ article.category }}" disabled>
+                    <label>
+                </td>
+                <td>
+                    <label>
+                        <span>Items</span>
+                        <input type="text" name="article" value="{{ article.item_set.count }}" disabled>
+                    <label>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Items</h3>
+
+    {% if article.item_set.all %}
+
+    <table>
+        <thead>
+            <tr>
+                <td>Name</td>
+                <td>Description</td>
+                <td>Available</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in article.item_set.all %}
+            <tr>
+                <td>
+                    <span>
+                        {{ item.name }}
+                    </span>
+                </td>
+                <td>
+                    <span>
+                        {{ item.description }}
+                    </span>
+                </td>
+                <td>
+                    <span>
+                        {{ item.is_available }}
+                    </span>
+                </td>
+                <td>
+                    <span>
+                        {{ item.item_set.count }}
+                    </span>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    {% else %}
+        <p>No articles availables.</p>
+    {% endif %}
+
+</div>
+
 
 {% endblock %}
 
