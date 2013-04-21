@@ -12,18 +12,14 @@ def index(request):
 
 def article(request, article_id):
     article = get_object_or_404(Article, pk=article_id)
-    items = Item.objects.all().order_by('-name')
     context = {
         'article': article,
-        'items': items,
     }
     return render(request, 'article.html', context)
 
 
 def article_add(request):
     article = Article()
-    article.id = 0
-    article.description = ''
     categories = Category.objects.all().order_by('-name')
     context = {
         'article': article,
@@ -85,7 +81,7 @@ def article_save(request, article_id):
 
 
 def article_remove(request, article_id):
-    article = Article.objects.get(pk=article_id)
+    article = get_object_or_404(Article, pk=article_id)
     article.delete()
     articles = Article.objects.all().order_by('-category')
     context = {
@@ -95,8 +91,13 @@ def article_remove(request, article_id):
     return render(request, 'index.html', context)
 
 
-def item_add(request):
-    context = {}
+def item_add(request, article_id):
+    article = get_object_or_404(Article, pk=article_id)
+    item = Item()
+    context = {
+        'article': article,
+        'item': item,
+    }
     return render(request, 'item_add.html', context)
 
 

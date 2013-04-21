@@ -6,7 +6,7 @@
     <h2>Article {{ article.name }}</h2>
 
     <div class="button-bar">
-        <a href="{% url 'item_add' %}" class="button">Add Item</a>
+        <a href="{% url 'item_add' article.id %}" class="button">Add Item</a>
         <a href="{% url 'article_remove' article.id %}" class="button"
             onclick="return confirm('Are you sure to delete {{ article.name }}')">
             Remove
@@ -23,14 +23,14 @@
                         <span>Name</span>
                         <input type="text" name="article_name"
                             value="{{ article.name }}" disabled>
-                    <label>
+                    </label>
                 </td>
                 <td>
                     <label>
                         <span>Description</span>
                         <input type="text" name="article_description"
                             value="{{ article.description }}" disabled>
-                    <label>
+                    </label>
                 </td>
             </tr>
             <tr>
@@ -39,14 +39,14 @@
                         <span>Category</span>
                         <input type="text" name="article_category"
                             value="{{ article.category }}" disabled>
-                    <label>
+                    </label>
                 </td>
                 <td>
                     <label>
                         <span>Items</span>
                         <input type="text" name="article"
                             value="{{ article.item_set.count }}" disabled>
-                    <label>
+                    </label>
                 </td>
             </tr>
         </tbody>

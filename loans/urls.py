@@ -9,6 +9,6 @@ urlpatterns = patterns(
     url(r'^article/(?P<article_id>\d+)/edit', views.article_edit, name='article_edit'),
     url(r'^article/(?P<article_id>\d+)/save', views.article_save, name='article_save'),
     url(r'^article/(?P<article_id>\d+)/remove', views.article_remove, name='article_remove'),
-    url(r'^item/add', views.item_add, name='item_add'),
+    url(r'^article/(?P<article_id>\d+)/item/add', views.item_add, name='item_add'),
     url(r'^item/(?P<item_id>\d+)', views.item, name='item'),
 )

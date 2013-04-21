@@ -14,6 +14,17 @@ STATE_CHOICES = (
     (STATE_NOT_AVAILABLE, 'Not available'),
 )
 
+CONDITION_RIGHT = 'R'
+CONDITION_DEFECTIVE = 'D'
+CONDITION_POOR = 'P'
+CONDITION_OUT_OF_SERVICE = 'O'
+CONDITION_CHOICES = (
+    (CONDITION_RIGHT, 'Right'),
+    (CONDITION_DEFECTIVE, 'Defective'),
+    (CONDITION_POOR, 'Poor'),
+    (CONDITION_OUT_OF_SERVICE, 'Out of service'),
+)
+
 
 class Dependency(models.Model):
     name = models.CharField(max_length=100)
@@ -34,7 +45,7 @@ class UserProfile(models.Model):
 class Category(models.Model):
     name = models.CharField(max_length=100)
     description = models.CharField(max_length=200, null=True)
-    main_category = models.ForeignKey('loans.Category',
+    main_category = models.ForeignKey('Category',
                                       blank=True,
                                       null=True,
                                       on_delete=models.SET_NULL)
@@ -59,6 +70,9 @@ class Item(models.Model):
     state = models.CharField(max_length=1,
                              choices=STATE_CHOICES,
                              default=STATE_AVAILABLE)
+    condition = models.CharField(max_length=1,
+                                 choices=CONDITION_CHOICES,
+                                 default=CONDITION_RIGHT)
 
     def __str__(self):
         return self.article.name + ' - ' + self.name
@@ -106,4 +120,3 @@ admin.site.register(UserProfile, UserProfileAdmin)
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Article, ArticleAdmin)
 admin.site.register(Item, ItemAdmin)
-
