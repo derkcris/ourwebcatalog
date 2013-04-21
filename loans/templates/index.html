@@ -2,8 +2,57 @@
 
 {% block content %}
 
-<div class="column1">
-    <a href="{% url 'article_index'%}">Catalogo</a>
+<div class="article">
+    <h2>Catalog</h2>
+
+    <div class="button-bar">
+        <a href="{% url 'article_add' %}" class="button">Add Article</a>
+    </div>
+
+    {% if articles %}
+    <table>
+        <thead>
+            <tr>
+                <td>Category</td>
+                <td>Article</td>
+                <td>Items</td>
+                <td>Available</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for article in articles %}
+            <tr>
+                <td>
+                    <a href="{% url 'article' article.id %}">
+                        {{ article.category.name }}
+                    </a>
+                </td>
+                <td>
+                    <a href="{% url 'article' article.id %}">
+                        {{ article.name }}
+                    </a>
+                </td>
+                <td>
+                    <a href="{% url 'article' article.id %}">
+                        {{ article.item_set.count }}
+                    </a>
+                </td>
+                <td>
+                    <a href="{% url 'article' article.id %}">
+                        {{ article.item_set.count }}
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    {% else %}
+        <p>No articles availables.</p>
+    {% endif %}
+
 </div>
 
 {% endblock %}
+
+

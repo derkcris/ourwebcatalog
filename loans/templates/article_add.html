@@ -4,11 +4,11 @@
 
 <div class="article">
 
-    <form action="{% url 'article_save' %}" method="post">
+    <form action="{% url 'article_save' article.id %}" method="post">
         {% csrf_token %}
 
         {% if article.id %}
-            <h2>{{ article.name }}</h2>
+            <h2>Article {{ article.name }}</h2>
         {% else %}
             <h2>New Article</h2>
         {% endif %}
@@ -16,7 +16,11 @@
 
         <div class="button-bar">
             <input type="submit" class="button" value="Save">
-            <a href="{% url 'article_index' %}">Back</a>
+            {% if article.id %}
+                <a href="{% url 'article' article.id %}">Back</a>
+            {% else %}
+                <a href="{% url 'index' %}">Back</a>
+            {% endif %}
         </div>
 
         <table class="form">

@@ -14,7 +14,7 @@ STATE_CHOICES = (
     (STATE_NOT_AVAILABLE, 'Not available'),
 )
 
-# Dependency of user
+
 class Dependency(models.Model):
     name = models.CharField(max_length=100)
     description = models.CharField(max_length=200, null=True)
@@ -22,7 +22,7 @@ class Dependency(models.Model):
     def __str__(self):
         return self.name
 
-# User
+
 class UserProfile(models.Model):
     user = models.OneToOneField(User)
     dependency = models.ForeignKey(Dependency)
@@ -30,19 +30,19 @@ class UserProfile(models.Model):
     def __str__(self):
         return self.user.get_full_name()
 
-# Category of Article
+
 class Category(models.Model):
     name = models.CharField(max_length=100)
     description = models.CharField(max_length=200, null=True)
     main_category = models.ForeignKey('loans.Category',
-        blank=True,
-        null=True,
-        on_delete=models.SET_NULL)
+                                      blank=True,
+                                      null=True,
+                                      on_delete=models.SET_NULL)
 
     def __str__(self):
         return self.name
 
-# Article
+
 class Article(models.Model):
     category = models.ForeignKey(Category)
     name = models.CharField(max_length=100)
@@ -51,14 +51,14 @@ class Article(models.Model):
     def __str__(self):
         return self.name
 
-# Item
+
 class Item(models.Model):
     article = models.ForeignKey(Article)
     name = models.CharField(max_length=100)
     description = models.CharField(max_length=200, null=True)
     state = models.CharField(max_length=1,
-        choices=STATE_CHOICES,
-        default=STATE_AVAILABLE)
+                             choices=STATE_CHOICES,
+                             default=STATE_AVAILABLE)
 
     def __str__(self):
         return self.article.name + ' - ' + self.name
@@ -66,13 +66,14 @@ class Item(models.Model):
     def is_available(self):
         return self.state == STATE_AVAILABLE
 
-# Loan
+
 class Loan(models.Model):
     item = models.ForeignKey(Item)
     user = models.ForeignKey(UserProfile)
     start_date = models.DateTimeField('Start Date')
     end_date = models.DateTimeField('End Date', null=True)
-    estimated_end_date = models.DateTimeField('Estimated end date', null=True)
+    estimated_end_date = models.DateTimeField('Estimated end date',
+                                              null=True)
     observations = models.CharField(max_length=200, null=True)
 
     def __str__(self):
@@ -83,19 +84,21 @@ class Loan(models.Model):
 class DependencyAdmin(admin.ModelAdmin):
     fields = ['name', 'description']
 
+
 class UserProfileAdmin(admin.ModelAdmin):
     fields = ['user', 'dependency']
+
 
 class CategoryAdmin(admin.ModelAdmin):
     fields = ['name', 'description']
 
+
 class ArticleAdmin(admin.ModelAdmin):
     fields = ['category', 'name', 'description']
 
+
 class ItemAdmin(admin.ModelAdmin):
     fields = ['article', 'name', 'description', 'state']
-
-
 
 # Register class on Admin module
 admin.site.register(Dependency, DependencyAdmin)

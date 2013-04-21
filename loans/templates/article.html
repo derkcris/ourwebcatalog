@@ -12,7 +12,7 @@
             Remove
         </a>
         <a href="{% url 'article_edit' article.id %}" class="button">Edit</a>
-        <a href="{% url 'article_index' %}">Back</a>
+        <a href="{% url 'index' %}">Back</a>
     </div>
 
     <table class="form">
@@ -93,7 +93,7 @@
     </table>
 
     {% else %}
-        <p>No articles availables.</p>
+        <p>No items availables.</p>
     {% endif %}
 
 </div>

@@ -7,8 +7,8 @@
 body{
     font-family:                    Helvetica, Arial;
     font-size:                      13px;
-    margin:                         0px;
-    padding:                        0px;
+    margin:                         0;
+    padding:                        0;
     color:                          #404040;
 }
 
@@ -20,7 +20,12 @@ address {
     display:                        block;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family:                    'CabinRegular',Arial;
     font-weight:                    normal;
     display:                        inline-block;
@@ -34,7 +39,11 @@ h2{
     font-size:                      25px;
     margin:                         10px 0 20px;
 }
-
+h3{
+    color:                          #979797;
+    font-size:                      20px;
+    margin:                         10px 0 5px;
+}
 a{
     text-decoration:                none;
 }
@@ -44,7 +53,7 @@ a{
 
 
 table{
-    width: 100%;
+    width:                          100%;
     margin:                         10px 0;
     border:                         1px solid #CECECE;
     border-radius:                  8px 8px 8px 8px;
@@ -54,9 +63,6 @@ table{
 thead{
     font-weight:                    bold;
 }
-    thead tr{
-
-    }
     thead td{
         padding:                    15px 20px;
         border-bottom:              1px solid #CECECE;
@@ -80,7 +86,7 @@ tr {
 
 }
 td{
-    margin:                         0px;
+    margin:                         0;
     padding:                        0;
 }
     td span{
@@ -100,19 +106,18 @@ td{
 
 
 .wrapper{
-    width:                          1000px;
-    margin:                         0px auto;
+    width:                          900px;
+    margin:                         0 auto;
     padding:                        0;
 }
 
 .button-bar{
     display:                        inline;
-    margin:                         10px 0;
     overflow:                       visible;
 }
     .button-bar a{
         font:                       13px/20px Arial;
-        margin:                     0 0 0 10px;
+        margin:                     0 0 0 5px;
         cursor:                     pointer;
         float:                      right;
         padding:                    3px 7px;
@@ -129,7 +134,7 @@ td{
         }
     .button-bar input.button{
         font:                       13px/20px Arial;
-        margin:                     0 0 0 10px;
+        margin:                     0 0 0 5px;
         cursor:                     pointer;
         float:                      right;
         padding:                    5px 8px 4px;
@@ -145,13 +150,14 @@ td{
 
 }
     .form label{
-        padding:                    15px 20px 0px;
+        padding:                    15px 20px 0;
         display:                    block;
     }
         .form label span{
-            padding:                0px;
+            padding:                0;
         }
-        .form label input{
+        .form label input,
+        .form label select{
             display: block;
             margin:                 3px 0 0 0;
             padding:                5px 7px;
@@ -159,17 +165,25 @@ td{
             border-radius:          2px;
             box-shadow:             0 0 18px 0 rgba(147, 147, 147, 0.2);
         }
+        .form label input{
+            width:                  200px;
+        }
             .form label input:hover,
-            .form label input:active{
+            .form label select:hover,
+            .form label input:active,
+            .form label select:active{
                 border:             1px solid #AAAAAA;
             }
+        .form label select{
+            width:                  215px;
+        }
 
 .info_message,
 .success_message,
 .warn_message,
 .error_message{
     border:                         1px solid;
-    margin:                         10px 0px;
+    margin:                         10px 0;
     padding:                        15px 10px 15px 50px;
     background-repeat:              no-repeat;
     background-position:            10px center;
@@ -201,9 +215,9 @@ td{
 #header{
     display:                        block;
     position:                       fixed;
-    top:                            0px;
-    right:                          0px;
-    left:                           0px;
+    top:                            0;
+    right:                          0;
+    left:                           0;
     z-index:                        10;
     background-color:               #252525;
 }
@@ -223,7 +237,6 @@ td{
     #header .main-menu{
         width:                      100%;
         display:                    block;
-        margin:                     0;
         float:                      left;
         left:                       0;
         margin:                     0 10px 0 0;
@@ -255,7 +268,6 @@ td{
     }
     #header a{
         color:                      #E8E8E8;
-        padding:                    0 5px;
         font-size:                  13px;
         line-height:                15px;
         margin-left:                5px;
