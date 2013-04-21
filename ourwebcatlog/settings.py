@@ -77,7 +77,7 @@ STATICFILES_DIRS = (
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
     os.path.join(PROJECT_PATH, "static"),
-    os.path.join(PROJECT_PATH, "loans/static"),
+    os.path.join(PROJECT_PATH, "catalog/static"),
 )
 
 # List of finder classes that know how to find static files in
@@ -128,7 +128,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
-    'loans',
+    'catalog',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
 )

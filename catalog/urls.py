@@ -1,5 +1,5 @@
 from django.conf.urls import patterns, url
-from loans import views
+from catalog import views
 
 urlpatterns = patterns(
     '',

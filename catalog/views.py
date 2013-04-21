@@ -1,4 +1,4 @@
-from loans.models import Category, Article, Item
+from catalog.models import Category, Article, Item
 from django.shortcuts import render, get_object_or_404
 
 
