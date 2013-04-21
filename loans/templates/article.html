@@ -3,11 +3,15 @@
 {% block content %}
 
 <div class="article">
-    <h2>{{ article.name }}</h2>
+    <h2>Article {{ article.name }}</h2>
 
     <div class="button-bar">
         <a href="{% url 'item_add' %}" class="button">Add Item</a>
-        <a href="{% url 'item_add' %}" class="button">Edit</a>
+        <a href="{% url 'article_remove' article.id %}" class="button"
+            onclick="return confirm('Are you sure to delete {{ article.name }}')">
+            Remove
+        </a>
+        <a href="{% url 'article_edit' article.id %}" class="button">Edit</a>
         <a href="{% url 'article_index' %}">Back</a>
     </div>
 
@@ -17,13 +21,15 @@
                 <td>
                     <label>
                         <span>Name</span>
-                        <input type="text" name="article_name" value="{{ article.name }}" disabled>
+                        <input type="text" name="article_name"
+                            value="{{ article.name }}" disabled>
                     <label>
                 </td>
                 <td>
                     <label>
                         <span>Description</span>
-                        <input type="text" name="article_description" value="{{ article.description }}" disabled>
+                        <input type="text" name="article_description"
+                            value="{{ article.description }}" disabled>
                     <label>
                 </td>
             </tr>
@@ -31,13 +37,15 @@
                 <td>
                     <label>
                         <span>Category</span>
-                        <input type="text" name="article_category" value="{{ article.category }}" disabled>
+                        <input type="text" name="article_category"
+                            value="{{ article.category }}" disabled>
                     <label>
                 </td>
                 <td>
                     <label>
                         <span>Items</span>
-                        <input type="text" name="article" value="{{ article.item_set.count }}" disabled>
+                        <input type="text" name="article"
+                            value="{{ article.item_set.count }}" disabled>
                     <label>
                 </td>
             </tr>

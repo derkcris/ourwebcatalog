@@ -19,20 +19,6 @@
             <a href="{% url 'article_index' %}">Back</a>
         </div>
 
-        {% if error_message %}
-            <div class="error_message">
-                <span>{{ error_message }}</span>
-            </div>
-            {% if fields %}
-            <ul>
-                {% for f in fields %}
-                    <li>{{ f }}</li>
-                {% endfor %}
-            </ul>
-            {% endif %}
-        {% endif %}
-
-
         <table class="form">
             <tbody>
                 <tr>

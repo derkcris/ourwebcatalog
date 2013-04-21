@@ -42,6 +42,35 @@
         <div id="main">
             <div class="wrapper">
                 <div id="content">
+
+                    {% if info_message %}
+                        <div class="info_message">
+                            <span>{{ info_message }}</span>
+                        </div>
+                    {% endif %}
+                    {% if success_message %}
+                        <div class="success_message">
+                            <span>{{ success_message }}</span>
+                        </div>
+                    {% endif %}
+                    {% if warn_message %}
+                        <div class="warn_message">
+                            <span>{{ warn_message }}</span>
+                        </div>
+                    {% endif %}
+                    {% if error_message %}
+                        <div class="error_message">
+                            <span>{{ error_message }}</span>
+                            {% if error_fields %}
+                            <ul>
+                                {% for f in error_fields %}
+                                    <li>{{ f }}</li>
+                                {% endfor %}
+                            </ul>
+                            {% endif %}
+                        </div>
+                    {% endif %}
+
                     {% block content %}
                     {% endblock %}
                 </div>
