@@ -1,0 +1,132 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="article">
+    <h2>
+        {{ people.get_full_name }}
+        <span>
+            from <a href="{% url 'dependency' people.dependency.id %}">
+                        {{ people.dependency.name }}
+                </a>
+        </span>
+    </h2>
+
+    <div class="button-bar">
+        <a href="{% url 'people_remove' people.id %}" class="button"
+            onclick="return confirm('Are you sure to delete {{ people.name }}')">
+            Remove
+        </a>
+        <a href="{% url 'people_edit' people.id %}" class="button">Edit</a>
+        <a href="{% url 'people_index' %}">Back</a>
+    </div>
+
+    <table class="form">
+        <tbody>
+            <tr>
+                <td>
+                    <label>
+                        <span>First Name</span>
+                        <input type="text" name="people_first_name"
+                            value="{{ people.first_name }}" disabled>
+                    </label>
+                </td>
+                <td>
+                    <label>
+                        <span>Last Name</span>
+                        <input type="text" name="people_last_name"
+                            value="{{ people.last_name }}" disabled>
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>
+                        <span>Email</span>
+                        <input type="text" name="people_email"
+                            value="{{ people.email }}" disabled>
+                    </label>
+                </td>
+                <td>
+                    <label>
+                        <span>Dependency</span>
+                        <input type="text" name="people"
+                            value="{{ people.dependency }}" disabled>
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>
+                        <span>Is active</span>
+                        <input type="text" name="people_active"
+                            value="{{ people.active }}" disabled>
+                    </label>
+                </td>
+                <td>
+                    <label>
+                        <span>Active loans</span>
+                        <input type="text" name="people"
+                            value="{{ people.active_loans }}" disabled>
+                    </label>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Active Loans</h3>
+
+    {% if active_loans %}
+
+    <table>
+        <thead>
+            <tr>
+                <td>Item</td>
+                <td>Start date</td>
+                <td>End date</td>
+                <td>Estimated end date</td>
+                <td>Observations</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for loan in active_loans %}
+            <tr>
+                <td>
+                    <span>
+                        {{ loan.item }}
+                    </span>
+                </td>
+                <td>
+                    <span>
+                        {{ loan.start_date }}
+                    </span>
+                </td>
+                <td>
+                    <span>
+                        {{ loan.end_date }}
+                    </span>
+                </td>
+                <td>
+                    <span>
+                        {{ loan.estimated_end_date }}
+                    </span>
+                </td>
+                <td>
+                    <span>
+                        {{ loan.observations }}
+                    </span>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    {% else %}
+        <p>No loans availables.</p>
+    {% endif %}
+
+</div>
+
+
+{% endblock %}
+

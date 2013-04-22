@@ -1,0 +1,536 @@
+[
+  {
+    "model":                    "catalog.Category",
+    "pk":                       1,
+    "fields": {
+      "name":                   "Aulas",
+      "description":            "Aulas de clase"
+    }
+  },
+  {
+    "model":                    "catalog.Category",
+    "pk":                       2,
+    "fields": {
+      "name":                   "Laboratorio",
+      "description":            "Aulas de clase tipo laboratorio",
+      "main_category":          1
+    }
+  },
+  {
+    "model":                    "catalog.Category",
+    "pk":                       3,
+    "fields": {
+      "name":                   "Implementos",
+      "description":            "Implementos de clase"
+    }
+  },
+  {
+    "model":                    "catalog.Category",
+    "pk":                       4,
+    "fields": {
+      "name":                   "Computador",
+      "description":            "Equipo de computo",
+      "main_category":          3
+    }
+  },
+  {
+    "model":                    "catalog.Category",
+    "pk":                       5,
+    "fields": {
+      "name":                   "Portatil",
+      "description":            "Equipo de computo portable",
+      "main_category":          4
+    }
+  },
+  {
+    "model":                    "catalog.Category",
+    "pk":                       6,
+    "fields": {
+      "name":                   "Computador de torre",
+      "description":            "Computador de torre",
+      "main_category":          4
+    }
+  },
+  {
+    "model":                    "catalog.Category",
+    "pk":                       7,
+    "fields": {
+      "name":                   "VideoBeam",
+      "description":            "Dispositivo de proyeccion de video",
+      "main_category":          3
+    }
+  },
+  {
+    "model":                    "catalog.Category",
+    "pk":                       8,
+    "fields": {
+      "name":                   "Tablet",
+      "description":            "Dispositivo tactil",
+      "main_category":          3
+    }
+  },
+  {
+    "model":                    "catalog.Category",
+    "pk":                       9,
+    "fields": {
+      "name":                   "Cubiculos",
+      "description":            "Cubiculos docentes"
+    }
+  },
+  {
+    "model":                    "catalog.Article",
+    "pk":                       1,
+    "fields": {
+      "name":                   "Aula de clase",
+      "description":            "Aula de clases",
+      "category":               1
+    }
+  },
+  {
+    "model":                    "catalog.Article",
+    "pk":                       2,
+    "fields": {
+      "name":                   "Laboratorio de redes",
+      "description":            "Laboratorio de redes",
+      "category":               2
+    }
+  },
+  {
+    "model":                    "catalog.Article",
+    "pk":                       3,
+    "fields": {
+      "name":                   "Laboratorio de electronica",
+      "description":            "Laboratorio de electronica",
+      "category":               2
+    }
+  },
+  {
+    "model":                    "catalog.Article",
+    "pk":                       4,
+    "fields": {
+      "name":                   "Auditorio",
+      "description":            "Auditorio",
+      "category":               1
+    }
+  },
+  {
+    "model":                    "catalog.Article",
+    "pk":                       5,
+    "fields": {
+      "name":                   "Portatil Toshiba",
+      "description":            "Portatil Toshiba",
+      "category":               5
+    }
+  },
+  {
+    "model":                    "catalog.Article",
+    "pk":                       6,
+    "fields": {
+      "name":                   "Portatil Dell",
+      "description":            "Portatil Dell",
+      "category":               5
+    }
+  },
+  {
+    "model":                    "catalog.Article",
+    "pk":                       7,
+    "fields": {
+      "name":                   "iMac",
+      "description":            "Computador Mac",
+      "category":               6
+    }
+  },
+  {
+    "model":                    "catalog.Article",
+    "pk":                       8,
+    "fields": {
+      "name":                   "Torre Dell",
+      "description":            "Computador torre del",
+      "category":               6
+    }
+  },
+  {
+    "model":                    "catalog.Article",
+    "pk":                       9,
+    "fields": {
+      "name":                   "VideoBeam Pregrado",
+      "description":            "VideoBeam pregado",
+      "category":               7
+    }
+  },
+  {
+    "model":                    "catalog.Article",
+    "pk":                       10,
+    "fields": {
+      "name":                   "VideoBeam Posgrado",
+      "description":            "VideoBeam posgrado",
+      "category":               7
+    }
+  },
+  {
+    "model":                    "catalog.Article",
+    "pk":                       11,
+    "fields": {
+      "name":                   "Galaxy Tab 10.1",
+      "description":            "Tablet Android Samsung 10 pulgadas",
+      "category":               8
+    }
+  },
+  {
+    "model":                    "catalog.Article",
+    "pk":                       12,
+    "fields": {
+      "name":                   "iPad 2",
+      "description":            "Tablet iOS Apple 10 pulgadas",
+      "category":               8
+    }
+  },
+  {
+    "model":                    "catalog.Article",
+    "pk":                       13,
+    "fields": {
+      "name":                   "Cubiculos Cental",
+      "description":            "Cubiculos edificio central",
+      "category":               9
+    }
+  },
+  {
+    "model":                    "catalog.Article",
+    "pk":                       14,
+    "fields": {
+      "name":                   "Cubiculos Ingenieria",
+      "description":            "Cubiculos edificio de ingenieria",
+      "category":               9
+    }
+  },
+  {
+    "model":                    "catalog.Item",
+    "pk":                       1,
+    "fields": {
+      "name":                   "RA301",
+      "description":            "Aula de clases con computadores",
+      "article":                1,
+      "state":                  "A",
+      "condition":              "G"
+    }
+  },
+  {
+    "model":                    "catalog.Item",
+    "pk":                       2,
+    "fields": {
+      "name":                   "RA302",
+      "description":            "Aula de clases con computadores",
+      "article":                1,
+      "state":                  "A",
+      "condition":              "G"
+    }
+  },
+  {
+    "model":                    "catalog.Item",
+    "pk":                       3,
+    "fields": {
+      "name":                   "RA303",
+      "description":            "Aula de clases con computadores",
+      "article":                1,
+      "state":                  "A",
+      "condition":              "G"
+    }
+  },
+  {
+    "model":                    "catalog.Item",
+    "pk":                       4,
+    "fields": {
+      "name":                   "RA304",
+      "description":            "Aula de clases con computadores",
+      "article":                1,
+      "state":                  "A",
+      "condition":              "G"
+    }
+  },
+  {
+    "model":                    "catalog.Item",
+    "pk":                       5,
+    "fields": {
+      "name":                   "RA305",
+      "description":            "Aula laboratorio de redes",
+      "article":                2,
+      "state":                  "A",
+      "condition":              "G"
+    }
+  },
+  {
+    "model":                    "catalog.Item",
+    "pk":                       6,
+    "fields": {
+      "name":                   "C135",
+      "description":            "Aula laboratorio de redes",
+      "article":                2,
+      "state":                  "A",
+      "condition":              "G"
+    }
+  },
+  {
+    "model":                    "catalog.Item",
+    "pk":                       7,
+    "fields": {
+      "name":                   "C124",
+      "description":            "Aula laboratorio de electronica",
+      "article":                3,
+      "state":                  "A",
+      "condition":              "G"
+    }
+  },
+  {
+    "model":                    "catalog.Item",
+    "pk":                       8,
+    "fields": {
+      "name":                   "L102",
+      "description":            "Auditorio. Capacidadde 30 personas",
+      "article":                4,
+      "state":                  "A",
+      "condition":              "G"
+    }
+  },
+  {
+    "model":                    "catalog.Item",
+    "pk":                       9,
+    "fields": {
+      "name":                   "Toshiba 10' Serie:ABC123",
+      "description":            "Portatil Toshiba",
+      "article":                5,
+      "state":                  "A",
+      "condition":              "G"
+    }
+  },
+  {
+    "model":                    "catalog.Item",
+    "pk":                       10,
+    "fields": {
+      "name":                   "Toshiba 10' Serie:XYZ987",
+      "description":            "Portatil Toshiba",
+      "article":                5,
+      "state":                  "A",
+      "condition":              "G"
+    }
+  },
+  {
+    "model":                    "catalog.Item",
+    "pk":                       10,
+    "fields": {
+      "name":                   "Dell 14' Serie:ASD456",
+      "description":            "Portatil Dell",
+      "article":                6,
+      "state":                  "A",
+      "condition":              "G"
+    }
+  },
+  {
+    "model":                    "catalog.Item",
+    "pk":                       11,
+    "fields": {
+      "name":                   "iMac Serie:ABC123",
+      "description":            "Equipo iMac 26' de Apple ",
+      "article":                7,
+      "state":                  "A",
+      "condition":              "G"
+    }
+  },
+  {
+    "model":                    "catalog.Item",
+    "pk":                       12,
+    "fields": {
+      "name":                   "iMac Serie:ABC456",
+      "description":            "Equipo iMac 26' de Apple ",
+      "article":                7,
+      "state":                  "A",
+      "condition":              "G"
+    }
+  },
+  {
+    "model":                    "catalog.Item",
+    "pk":                       13,
+    "fields": {
+      "name":                   "PC Serie: SDF876",
+      "description":            "Equipo de torre. Torre, monitor, teclado y mouse",
+      "article":                8,
+      "state":                  "A",
+      "condition":              "G"
+    }
+  },
+  {
+    "model":                    "catalog.Item",
+    "pk":                       14,
+    "fields": {
+      "name":                   "PC Serie: SDF877",
+      "description":            "Equipo de torre. Torre, monitor, teclado y mouse",
+      "article":                8,
+      "state":                  "A",
+      "condition":              "G"
+    }
+  },
+  {
+    "model":                    "catalog.Item",
+    "pk":                       15,
+    "fields": {
+      "name":                   "PC Serie: SDF878",
+      "description":            "Equipo de torre. Torre, monitor, teclado y mouse",
+      "article":                8,
+      "state":                  "A",
+      "condition":              "G"
+    }
+  },
+  {
+    "model":                    "catalog.Item",
+    "pk":                       15,
+    "fields": {
+      "name":                   "VideoBeam Serie:AZX123",
+      "description":            "VideoBeam VGA",
+      "article":                9,
+      "state":                  "A",
+      "condition":              "G"
+    }
+  },
+  {
+    "model":                    "catalog.Item",
+    "pk":                       16,
+    "fields": {
+      "name":                   "VideoBeam Serie:AZX124",
+      "description":            "VideoBeam VGA - HDMI",
+      "article":                9,
+      "state":                  "A",
+      "condition":              "G"
+    }
+  },
+  {
+    "model":                    "catalog.Item",
+    "pk":                       17,
+    "fields": {
+      "name":                   "VideoBeam Serie:AZX125",
+      "description":            "VideoBeam VGA - HDMI",
+      "article":                10,
+      "state":                  "A",
+      "condition":              "G"
+    }
+  },
+  {
+    "model":                    "catalog.Item",
+    "pk":                       17,
+    "fields": {
+      "name":                   "P7500 Serie:QWE987",
+      "description":            "Android 3.2, 10 pulgadas, 3G",
+      "article":                11,
+      "state":                  "A",
+      "condition":              "G"
+    }
+  },
+  {
+    "model":                    "catalog.Item",
+    "pk":                       18,
+    "fields": {
+      "name":                   "P7500 Serie:QWE988",
+      "description":            "Android 3.2, 10 pulgadas, 3G",
+      "article":                11,
+      "state":                  "A",
+      "condition":              "G"
+    }
+  },
+  {
+    "model":                    "catalog.Item",
+    "pk":                       19,
+    "fields": {
+      "name":                   "P7100 Serie:QWE9809",
+      "description":            "Android 3.2, 10 pulgadas, sin 3G",
+      "article":                11,
+      "state":                  "A",
+      "condition":              "G"
+    }
+  },
+  {
+    "model":                    "catalog.Item",
+    "pk":                       20,
+    "fields": {
+      "name":                   "iPad 2 Serie:APL123",
+      "description":            "iOS 5.1, 10 pulgadas, sin 3G",
+      "article":                12,
+      "state":                  "A",
+      "condition":              "G"
+    }
+  },
+  {
+    "model":                    "catalog.Item",
+    "pk":                       20,
+    "fields": {
+      "name":                   "iPad 2 3G Serie:APG124",
+      "description":            "iOS 5.1, 10 pulgadas, 3G",
+      "article":                12,
+      "state":                  "A",
+      "condition":              "G"
+    }
+  },
+  {
+    "model":                    "catalog.Item",
+    "pk":                       20,
+    "fields": {
+      "name":                   "C140 Cubiculo 1",
+      "description":            "Cubiculo sin división. Con una mesa",
+      "article":                13,
+      "state":                  "A",
+      "condition":              "G"
+    }
+  },
+  {
+    "model":                    "catalog.Item",
+    "pk":                       21,
+    "fields": {
+      "name":                   "C140 Cubiculo 2",
+      "description":            "Cubiculo sin división. Con una mesa",
+      "article":                13,
+      "state":                  "A",
+      "condition":              "G"
+    }
+  },
+  {
+    "model":                    "catalog.Item",
+    "pk":                       22,
+    "fields": {
+      "name":                   "C135 Cubiculo 1",
+      "description":            "Cubiculo sin división.",
+      "article":                13,
+      "state":                  "A",
+      "condition":              "G"
+    }
+  },
+  {
+    "model":                    "catalog.Item",
+    "pk":                       23,
+    "fields": {
+      "name":                   "Cubiculo director escuela",
+      "description":            "Cubiculo director de escuela.",
+      "article":                13,
+      "state":                  "A",
+      "condition":              "G"
+    }
+  },
+  {
+    "model":                    "catalog.Item",
+    "pk":                       24,
+    "fields": {
+      "name":                   "I105 Cubiculo 1",
+      "description":            "Cubiculo con división. Con mesa y armario.",
+      "article":                14,
+      "state":                  "A",
+      "condition":              "G"
+    }
+  },
+  {
+    "model":                    "catalog.Item",
+    "pk":                       24,
+    "fields": {
+      "name":                   "I105 Cubiculo 1",
+      "description":            "Cubiculo con división. Con mesa y armario.",
+      "article":                14,
+      "state":                  "A",
+      "condition":              "G"
+    }
+  }
+]

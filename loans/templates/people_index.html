@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="article">
+    <h2>People of System</h2>
+
+    <div class="button-bar">
+        <a href="{% url 'people_add' %}" class="button">Add People</a>
+    </div>
+
+    {% if peoples %}
+    <table>
+        <thead>
+            <tr>
+                <td>Dependency</td>
+                <td>Name</td>
+                <td>Email</td>
+                <td>Active</td>
+                <td>Loans</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for people in peoples %}
+            <tr>
+                <td>
+                    <a href="{% url 'people' people.id %}">
+                        {{ people.dependency.name }}
+                    </a>
+                </td>
+                <td>
+                    <a href="{% url 'people' people.id %}">
+                        {{ people.get_full_name }}
+                    </a>
+                </td>
+                <td>
+                    <a href="{% url 'people' people.id %}">
+                        {{ people.email }}
+                    </a>
+                </td>
+                <td>
+                    <a href="{% url 'people' people.id %}">
+                        {{ people.active }}
+                    </a>
+                </td>
+                <td>
+                    <a href="{% url 'people' people.id %}">
+                        {{ people.loan_set.count }}
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    {% else %}
+        <p>No people available.</p>
+    {% endif %}
+
+</div>
+
+{% endblock %}
+
+

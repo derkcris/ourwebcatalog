@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="article">
+    <h2>Dependency</h2>
+
+    <div class="button-bar">
+        <a href="{% url 'dependency_add' %}" class="button">Add Dependency</a>
+    </div>
+
+    {% if dependencies %}
+    <table>
+        <thead>
+            <tr>
+                <td>Name</td>
+                <td>Description</td>
+                <td>Users</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for dependency in dependencies %}
+            <tr>
+                <td>
+                    <a href="{% url 'dependency' dependency.id %}">
+                        {{ dependency.name }}
+                    </a>
+                </td>
+                <td>
+                    <a href="{% url 'dependency' dependency.id %}">
+                        {{ dependency.description }}
+                    </a>
+                </td>
+                <td>
+                    <a href="{% url 'dependency' dependency.id %}">
+                        {{ dependency.people_set.count }}
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    {% else %}
+        <p>No dependencies availables.</p>
+    {% endif %}
+
+</div>
+
+{% endblock %}
+
+

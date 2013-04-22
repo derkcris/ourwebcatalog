@@ -81,6 +81,7 @@ tbody{
 }
     tbody tr:hover{
         background:                 #252525;
+        color:                      #FFFFFF;
         border-left:                1px solid #CECECE;
         border-right:               1px solid #CECECE;
         border-top:                 1px solid #E0E0E0;
@@ -143,9 +144,10 @@ td{
         .button-bar a.button:hover{
             text-decoration:        none;
         }
-    .button-bar input.button{
+    .button-bar input.button,
+    .button-bar button{
         font:                       13px/20px Arial;
-        margin:                     0 0 0 5px;
+        margin:                     7 0 0 5px;
         cursor:                     pointer;
         float:                      right;
         padding:                    5px 8px 4px;
@@ -155,7 +157,6 @@ td{
         box-shadow:                 0 1px 0 0 rgba(237, 237, 237, 0.37) inset, 0 1px 0 0 rgba(0, 0, 0, 0.23);
         color:                      #FFFFFF;
     }
-
 
 .form{
 

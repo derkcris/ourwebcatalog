@@ -1,6 +1,5 @@
 from django.db import models
 from django.contrib import admin
-from django.contrib.auth.models import User
 
 # States choices
 STATE_AVAILABLE = 'A'
@@ -24,22 +23,6 @@ CONDITION_CHOICES = (
     (CONDITION_POOR, 'Poor'),
     (CONDITION_OUT_OF_SERVICE, 'Out of service'),
 )
-
-
-class Dependency(models.Model):
-    name = models.CharField(max_length=100)
-    description = models.CharField(max_length=200, null=True)
-
-    def __str__(self):
-        return self.name
-
-
-class UserProfile(models.Model):
-    user = models.OneToOneField(User)
-    dependency = models.ForeignKey(Dependency)
-
-    def __str__(self):
-        return self.user.get_full_name()
 
 
 class Category(models.Model):
@@ -96,30 +79,8 @@ class Item(models.Model):
         return CONDITION_GOOD
 
 
-class Loan(models.Model):
-    item = models.ForeignKey(Item)
-    user = models.ForeignKey(UserProfile)
-    start_date = models.DateTimeField('Start Date')
-    end_date = models.DateTimeField('End Date', null=True)
-    estimated_end_date = models.DateTimeField('Estimated end date',
-                                              null=True)
-    observations = models.CharField(max_length=200, null=True)
-
-    def __str__(self):
-        return self.item
-
-
-# Admin class
-class DependencyAdmin(admin.ModelAdmin):
-    fields = ['name', 'description']
-
-
-class UserProfileAdmin(admin.ModelAdmin):
-    fields = ['user', 'dependency']
-
-
 class CategoryAdmin(admin.ModelAdmin):
-    fields = ['name', 'description']
+    fields = ['name', 'description', 'main_category']
 
 
 class ArticleAdmin(admin.ModelAdmin):
@@ -127,11 +88,9 @@ class ArticleAdmin(admin.ModelAdmin):
 
 
 class ItemAdmin(admin.ModelAdmin):
-    fields = ['article', 'name', 'description', 'state']
+    fields = ['article', 'name', 'description', 'state', 'condition']
 
 # Register class on Admin module
-admin.site.register(Dependency, DependencyAdmin)
-admin.site.register(UserProfile, UserProfileAdmin)
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Article, ArticleAdmin)
 admin.site.register(Item, ItemAdmin)

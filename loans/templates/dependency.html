@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="article">
+    <h2>
+        Dependency {{ dependency.name }}
+    </h2>
+
+    <a href="{% url 'dependency_people_add' dependency.id %}" class="button">Add People</a>
+    <div class="button-bar">
+        <a href="{% url 'dependency_remove' dependency.id %}" class="button"
+            onclick="return confirm('Are you sure to delete {{ dependency.name }}')">
+            Remove
+        </a>
+        <a href="{% url 'dependency_edit' dependency.id %}" class="button">Edit</a>
+        <a href="{% url 'dependency_index' %}">Back</a>
+    </div>
+
+    <table class="form">
+        <tbody>
+            <tr>
+                <td>
+                    <label>
+                        <span>Name</span>
+                        <input type="text" name="dependency_name"
+                            value="{{ dependency.name }}" disabled>
+                    </label>
+                </td>
+                <td>
+                    <label>
+                        <span>Description</span>
+                        <input type="text" name="dependency_description"
+                            value="{{ dependency.description }}" disabled>
+                    </label>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Users</h3>
+    {% if dependency.people_set.all %}
+    <table>
+        <thead>
+            <tr>
+                <td>Dependency</td>
+                <td>Name</td>
+                <td>Email</td>
+                <td>Active</td>
+                <td>Loans</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for people in dependency.people_set.all %}
+            <tr>
+                <td>
+                    <a href="{% url 'people' people.id %}">
+                        {{ people.dependency.name }}
+                    </a>
+                </td>
+                <td>
+                    <a href="{% url 'people' people.id %}">
+                        {{ people.get_full_name }}
+                    </a>
+                </td>
+                <td>
+                    <a href="{% url 'people' people.id %}">
+                        {{ people.email }}
+                    </a>
+                </td>
+                <td>
+                    <a href="{% url 'people' article.id %}">
+                        {{ people.loan_set.count }}
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    {% else %}
+        <p>No users availables.</p>
+    {% endif %}
+
+</div>
+
+{% endblock %}
+

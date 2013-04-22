@@ -1,4 +1,4 @@
-# Django settings for ourwebcatlog project.
+# Django settings for ourwebcatalog project.
 import os
 
 DEBUG = True
@@ -12,8 +12,8 @@ MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'ourwebcatalog',                      # Or path to database file if using sqlite3.
+        'ENGINE': 'django.db.backends.sqlite3',  # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+        'NAME': 'db_ourwebcatalog',                      # Or path to database file if using sqlite3.
         # The following settings are not used with sqlite3:
         'USER': 'ourwebcatalog',
         'PASSWORD': '',
@@ -78,6 +78,7 @@ STATICFILES_DIRS = (
     # Don't forget to use absolute paths, not relative paths.
     os.path.join(PROJECT_PATH, "static"),
     os.path.join(PROJECT_PATH, "catalog/static"),
+    os.path.join(PROJECT_PATH, "loans/static"),
 )
 
 # List of finder classes that know how to find static files in
@@ -85,7 +86,7 @@ STATICFILES_DIRS = (
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-#    'django.contrib.staticfiles.finders.DefaultStorageFinder',
+    #'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
 
 # Make this unique, and don't share it with anybody.
@@ -95,7 +96,7 @@ SECRET_KEY = 'bs!28)-5$u_t!j@lt0yb5j%xd2ll@122am$&!(2f07ucf_-*4u'
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
-#     'django.template.loaders.eggs.Loader',
+    # 'django.template.loaders.eggs.Loader',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -129,6 +130,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.admin',
     'catalog',
+    'loans',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
 )
