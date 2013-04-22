@@ -4,7 +4,7 @@
 
 <div class="article">
 
-    <form action="{% url 'dependency_save' dependency.id|default:0 %}" method="post">
+    <form action="{% url 'dependency_save' dependency.id|default:0 %}" method="post" autocomplete="off">
         {% csrf_token %}
 
         {% if dependency.id %}

@@ -4,7 +4,7 @@
 
 <div class="article">
 
-    <form action="{% url 'article_save' article.id|default:0 %}" method="post">
+    <form action="{% url 'article_save' article.id|default:0 %}" method="post" autocomplete="off">
         {% csrf_token %}
 
         {% if article.id %}
