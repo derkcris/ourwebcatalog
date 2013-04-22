@@ -1,5 +1,7 @@
 from loans.models import Dependency, People
 from django.shortcuts import render, get_object_or_404
+from django.core.validators import validate_email
+from django.core.exceptions import ValidationError
 
 
 def index(request):
@@ -44,8 +46,7 @@ def dependency_edit(request, dependency_id):
 
 def dependency_save(request, dependency_id):
     error = False
-    error_message = ''
-    error_fields = []
+    error_message = []
 
     if(dependency_id == 0 or dependency_id == '0'):
         dependency = Dependency()
@@ -56,21 +57,19 @@ def dependency_save(request, dependency_id):
 
     if len(dependency.name) == 0:
         error = True
-        error_message = "Some fields are required"
-        error_fields.append('Name')
+        error_message.append("Name is required")
 
     if error:
         context = {
             'dependency': dependency,
             'error_message': error_message,
-            'error_fields': error_fields,
         }
         return render(request, 'dependency_add.html', context)
     else:
         dependency.save()
         context = {
             'dependency': dependency,
-            'success_message': 'The dependency ' + dependency.name + ' has been added.',
+            'success_message': 'The dependency ' + dependency.name + ' has been saved.',
         }
         return render(request, 'dependency.html', context)
 
@@ -95,6 +94,14 @@ def dependency_people_add(request, dependency_id):
         'dependencies': dependencies,
     }
     return render(request, 'people_add.html', context)
+
+
+def people_index(request):
+    peoples = People.objects.all().order_by('-last_name')
+    context = {
+        'peoples': peoples,
+    }
+    return render(request, 'people_index.html', context)
 
 
 def people(request, people_id):
@@ -127,8 +134,7 @@ def people_edit(request, people_id):
 
 def people_save(request, people_id):
     error = False
-    error_message = ''
-    error_fields = []
+    error_message = []
     try:
         if(people_id == 0 or people_id == '0'):
             people = People()
@@ -138,36 +144,38 @@ def people_save(request, people_id):
         people.first_name = request.POST['first_name']
         people.last_name = request.POST['last_name']
         people.email = request.POST['email']
-        people.active = request.POST['active']
+        active = request.POST['active']
 
         if len(people.first_name) == 0:
             error = True
-            error_message = "Some fields are required"
-            error_fields.append('First name')
+            error_message.append("First name is required")
 
         if len(people.last_name) == 0:
             error = True
-            error_message = "Some fields are required"
-            error_fields.append('Last name')
+            error_message.append("Last name is required")
 
-        if len(people.email) == 0:
+        if active:
+            people.active = bool(active)
+        else:
             error = True
-            error_message = "Some fields are required"
-            error_fields.append('Email')
+            error_message.append("Active is required")
 
         people.dependency = Dependency.objects.get(id=request.POST['dependency'])
+        validate_email(people.email)
 
     except(KeyError, Dependency.DoesNotExist):
         error = True
-        error_message = "Some error_fields are required"
-        error_fields.append('Dependency')
+        error_message.append("Dependency is required")
+
+    except ValidationError:
+        error = True
+        error_message.append("Email has not format")
 
     if error:
         dependencies = Dependency.objects.all().order_by('-name')
         context = {
             'people': people,
             'error_message': error_message,
-            'error_fields': error_fields,
             'dependencies': dependencies,
         }
         return render(request, 'people_add.html', context)
@@ -175,7 +183,7 @@ def people_save(request, people_id):
         people.save()
         context = {
             'people': people,
-            'success_message': 'The people ' + people.name + ' has been added.',
+            'success_message': '' + people.get_full_name() + ' has been saved.',
         }
         return render(request, 'people.html', context)
 
@@ -186,7 +194,6 @@ def people_remove(request, people_id):
     peoples = People.objects.all().order_by('-category')
     context = {
         'peoples': peoples,
-        'success_message': 'The people ' + people.name + ' has been delete.',
+        'success_message': 'The people ' + people.get_full_name() + ' has been delete.',
     }
     return render(request, 'people_index.html', context)
-

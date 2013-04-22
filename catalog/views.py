@@ -50,8 +50,7 @@ def category_edit(request, category_id):
 
 def category_save(request, category_id):
     error = False
-    error_message = ''
-    error_fields = []
+    error_message = []
 
     if(category_id == 0 or category_id == '0'):
         category = Category()
@@ -62,8 +61,7 @@ def category_save(request, category_id):
 
     if len(category.name) == 0:
         error = True
-        error_message = "Some fields are required"
-        error_fields.append('Name')
+        error_message.append("Name is required")
     main_category = request.POST['main_category']
     if main_category != 0 and main_category != '0':
         category.main_category = Category.objects.get(id=main_category)
@@ -75,7 +73,6 @@ def category_save(request, category_id):
         context = {
             'category': category,
             'error_message': error_message,
-            'error_fields': error_fields,
             'categories': categories,
         }
         return render(request, 'category_add.html', context)
@@ -83,7 +80,7 @@ def category_save(request, category_id):
         category.save()
         context = {
             'category': category,
-            'success_message': 'The category ' + category.name + ' has been added.',
+            'success_message': 'The category ' + category.name + ' has been saved.',
         }
         return render(request, 'category.html', context)
 
@@ -151,8 +148,7 @@ def article_edit(request, article_id):
 
 def article_save(request, article_id):
     error = False
-    error_message = ''
-    error_fields = []
+    error_message = []
     try:
         if(article_id == 0 or article_id == '0'):
             article = Article()
@@ -163,22 +159,19 @@ def article_save(request, article_id):
 
         if len(article.name) == 0:
             error = True
-            error_message = "Some fields are required"
-            error_fields.append('Name')
+            error_message.append("Name is required")
 
         article.category = Category.objects.get(id=request.POST['category'])
 
     except(KeyError, Category.DoesNotExist):
         error = True
-        error_message = "Some error_fields are required"
-        error_fields.append('Category')
+        error_message.append("Category is required")
 
     if error:
         categories = Category.objects.all().order_by('-name')
         context = {
             'article': article,
             'error_message': error_message,
-            'error_fields': error_fields,
             'categories': categories,
         }
         return render(request, 'article_add.html', context)
@@ -186,7 +179,7 @@ def article_save(request, article_id):
         article.save()
         context = {
             'article': article,
-            'success_message': 'The article ' + article.name + ' has been added.',
+            'success_message': 'The article ' + article.name + ' has been saved.',
         }
         return render(request, 'article.html', context)
 
@@ -237,8 +230,7 @@ def item_edit(request, item_id):
 
 def item_save(request, item_id):
     error = False
-    error_message = ''
-    error_fields = []
+    error_message = []
 
     if(item_id == 0 or item_id == '0'):
         item = Item()
@@ -251,13 +243,11 @@ def item_save(request, item_id):
 
     if len(item.name) == 0:
         error = True
-        error_message = "Some fields are required"
-        error_fields.append('Name')
+        error_message.append("Name is required")
 
     if len(item.condition) == 0:
         error = True
-        error_message = "Some fields are required"
-        error_fields.append('Condition')
+        error_message.append("Condition is required")
 
     article_id = request.POST['article']
     if article_id != 0 and article_id != '0':
@@ -270,7 +260,6 @@ def item_save(request, item_id):
         context = {
             'item': item,
             'error_message': error_message,
-            'error_fields': error_fields,
             'articles': articles,
         }
         return render(request, 'item_add.html', context)
@@ -279,7 +268,7 @@ def item_save(request, item_id):
         article = Article.objects.get(pk=item.article.id)
         context = {
             'article': article,
-            'success_message': 'The item ' + item.name + ' has been added.',
+            'success_message': 'The item ' + item.name + ' has been saved.',
         }
         return render(request, 'article.html', context)
 

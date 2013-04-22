@@ -7,8 +7,8 @@
         Dependency {{ dependency.name }}
     </h2>
 
-    <a href="{% url 'dependency_people_add' dependency.id %}" class="button">Add People</a>
     <div class="button-bar">
+        <a href="{% url 'dependency_people_add' dependency.id %}" class="button">Add People</a>
         <a href="{% url 'dependency_remove' dependency.id %}" class="button"
             onclick="return confirm('Are you sure to delete {{ dependency.name }}')">
             Remove

@@ -161,15 +161,15 @@ td{
 .form{
 
 }
-    .form label{
+    .form td > label{
         padding:                    15px 20px;
         display:                    block;
     }
-        .form label span{
+        .form td > label span{
             padding:                0;
         }
-        .form label input,
-        .form label select{
+        .form td > label input,
+        .form td > label select{
             display: block;
             margin:                 3px 0 0 0;
             padding:                5px 7px;
@@ -177,17 +177,25 @@ td{
             border-radius:          2px;
             box-shadow:             0 0 18px 0 rgba(147, 147, 147, 0.2);
         }
-        .form label input{
+        .form td > label input{
             width:                  200px;
         }
-            .form label input:hover,
-            .form label select:hover,
-            .form label input:active,
-            .form label select:active{
+            .form td > label input:hover,
+            .form td > label select:hover,
+            .form td > label input:active,
+            .form td > label select:active{
                 border:             1px solid #AAAAAA;
             }
-        .form label select{
+        .form td > label select{
             width:                  215px;
+        }
+        .form td > label input[type='radio']{
+            width:                  15px;
+            display:                inline;
+        }
+        .form td input[type='radio'] + label{
+            display:                inline;
+            margin:                 0 15px 0 0;
         }
     .form tbody tr:hover{
         background:                 #CECECE;

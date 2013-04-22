@@ -8,7 +8,7 @@
         {% csrf_token %}
 
         {% if people.id %}
-            <h2>{{ people.name }}</h2>
+            <h2>{{ people.get_full_name }}</h2>
         {% else %}
             <h2>New People</h2>
         {% endif %}
@@ -65,10 +65,10 @@
                     <td>
                         <label>
                             <span>Is active *</span>
-                            <input type="radio" name="active" id="active_true" value="True" />
-                            <label id="active_true">True</label>
+                            <input type="radio" name="active" id="active_true" value="True" checked/>
+                            <label for="active_true" >True</label>
                             <input type="radio" name="active" id="active_false" value="False" />
-                            <label id="active_false">False</label>
+                            <label for="active_false">False</label>
                         </label>
                     </td>
                     <td>

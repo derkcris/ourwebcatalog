@@ -63,14 +63,11 @@
                     {% endif %}
                     {% if error_message %}
                         <div class="error_message">
-                            <span>{{ error_message }}</span>
-                            {% if error_fields %}
                             <ul>
-                                {% for f in error_fields %}
-                                    <li>{{ f }}</li>
+                                {% for message in error_message %}
+                                    <li>{{ message }}</li>
                                 {% endfor %}
                             </ul>
-                            {% endif %}
                         </div>
                     {% endif %}
 
