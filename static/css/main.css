@@ -147,7 +147,7 @@ td{
     .button-bar input.button,
     .button-bar button{
         font:                       13px/20px Arial;
-        margin:                     7 0 0 5px;
+        margin:                     7px 0 0 5px;
         cursor:                     pointer;
         float:                      right;
         padding:                    5px 8px 4px;
