@@ -75,8 +75,15 @@
     </table>
 
     <h3>Items on loan</h3>
+    <span>
+        <a href="{% url 'people' people.id %}" class="link-button">
+            View items on loan
+        </a>
+    </span>
 
-    {% if active_loans %}
+
+    <h3>Items returned</h3>
+    {% if return_loans %}
 
     <table>
         <thead>
@@ -89,15 +96,12 @@
             </tr>
         </thead>
         <tbody>
-            {% for loan in active_loans %}
+            {% for loan in return_loans %}
             <tr>
                 <td>
                     <span>
                         <a href="{% url 'loan' loan.id %}" class="link-button">
                             View
-                        </a>
-                        <a href="{% url 'loan' loan.id %}" class="link-button">
-                            Return
                         </a>
                     </span>
                 </td>
@@ -129,13 +133,6 @@
     {% else %}
         <p>No loans availables.</p>
     {% endif %}
-
-    <h3>Items returned</h3>
-    <span>
-        <a href="{% url 'people_returned' people.id %}" class="link-button">
-            View items returned
-        </a>
-    </span>
 
 </div>
 

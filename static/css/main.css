@@ -28,7 +28,6 @@ h5,
 h6 {
     font-family:                    'CabinRegular',Arial;
     font-weight:                    normal;
-    display:                        inline-block;
 }
 
 h1{
@@ -38,6 +37,7 @@ h2{
     color:                          #067D8F;
     font-size:                      25px;
     margin:                         10px 0 20px;
+    display:                        inline-block;
 }
     h2 span{
         font-family:                Helvetica, Arial;
@@ -193,13 +193,17 @@ tbody{
     padding:                        3px 6px 2px;
     margin:                         0 0 0 2px;
     color:                          #404040;
+    display:                        inline-block;
 }
     .link-button:hover{
         background-color:           #2D2E2F;
         text-decoration:            none;
         color:                      #FFFFFF;
     }
+    .link-button + .link-button{
+        margin:                     5px 0 0 2px;
 
+    }
 
 .info_message,
 .success_message,

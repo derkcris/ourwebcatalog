@@ -4,6 +4,7 @@ from loans import views
 urlpatterns = patterns(
     '',
     url(r'^$', views.loan_availables, name='loan_index'),
+    url(r'^(?P<loan_id>\d+)/$', views.loan, name='loan'),
     url(r'^availables/$', views.loan_availables, name='loan_availables'),
     url(r'^add/(?P<item_id>\d+)/$', views.loan_add, name='loan_add'),
     url(r'^save/(?P<item_id>\d+)/$', views.loan_save, name='loan_save'),
@@ -16,6 +17,7 @@ urlpatterns = patterns(
     url(r'^dependency/(?P<dependency_id>\d+)/people/add', views.dependency_people_add, name='dependency_people_add'),
     url(r'^people/$', views.people_index, name='people_index'),
     url(r'^people/(?P<people_id>\d+)/$', views.people, name='people'),
+    url(r'^people/(?P<people_id>\d+)/returned/$', views.people_returned, name='people_returned'),
     url(r'^people/add', views.people_add, name='people_add'),
     url(r'^people/(?P<people_id>\d+)/edit', views.people_edit, name='people_edit'),
     url(r'^people/(?P<people_id>\d+)/save', views.people_save, name='people_save'),

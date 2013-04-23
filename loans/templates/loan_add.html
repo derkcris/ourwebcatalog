@@ -27,11 +27,29 @@
                     </td>
                     <td>
                         <label>
+                            <span>Article *</span>
+                            <input type="text" name="category" value="{{ item.article|default:'' }}" readonly>
+                        </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>
+                            <span>Condition *</span>
+                            <input type="text" name="condition" value="{{ item.get_condition|default:'' }}" readonly>
+                        </label>
+                    </td>
+                    <td>
+                        <label>
                             <span>Loan to *</span>
                             <select name="people">
                                 <option value="0"></option>
                                 {% for people in peoples %}
-                                    <option value="{{ people.id }}">{{ people }}</option>
+                                    {% if loan.people and loan.people.id == people.id %}
+                                        <option value="{{ people.id }}" selected>{{ people.get_full_name }}</option>
+                                    {% else %}
+                                        <option value="{{ people.id }}">{{ people.get_full_name }}</option>
+                                    {% endif %} >
                                 {% endfor %}
                             </select>
                         </label>
@@ -41,7 +59,7 @@
                     <td>
                         <label>
                             <span>From *</span>
-                            <input type="text" name="start_date" value="{{ today }}" readonly>
+                            <input type="text" name="start_date" value="{{ loan.start_date }}" readonly>
                         </label>
                     </td>
                     <td>
@@ -57,7 +75,9 @@
                     <td colspan="2">
                         <label>
                             <span>Observations *</span>
-                            <textarea id="observations"></textarea>
+                            <textarea id="observations" name="observations">
+                                {{ loan.observations|default:'' }}
+                            </textarea>
                         </label>
                     </td>
 

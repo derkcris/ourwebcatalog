@@ -33,7 +33,7 @@ class People(models.Model):
         return self.first_name + ' ' + self.last_name
 
     def __str__(self):
-        return self.user.get_full_name()
+        return self.get_full_name()
 
 
 class Loan(models.Model):
@@ -49,7 +49,7 @@ class Loan(models.Model):
     observations = models.CharField(max_length=200, null=True)
 
     def __str__(self):
-        return self.item
+        return self.item.name
 
 
 class DependencyAdmin(admin.ModelAdmin):
