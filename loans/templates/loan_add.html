@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="article">
+
+    <form action="{% url 'loan_save' item.id %}" method="post" autocomplete="off">
+        {% csrf_token %}
+
+        <h2>Loan of {{ item.name }}</h2>
+
+
+        <div class="button-bar">
+            <input type="submit" class="button" value="Loan"
+                onclick="return confirm('Are you sure to loan {{ item.name }}')"/>
+            <a href="{% url 'loan_availables' %}">Back</a>
+        </div>
+
+        <table class="form">
+            <tbody>
+                <tr>
+                    <td>
+                        <label>
+                            <span>Item *</span>
+                            <input type="text" name="item" value="{{ item.name|default:'' }}" readonly>
+                        </label>
+                    </td>
+                    <td>
+                        <label>
+                            <span>Loan to *</span>
+                            <select name="people">
+                                <option value="0"></option>
+                                {% for people in peoples %}
+                                    <option value="{{ people.id }}">{{ people }}</option>
+                                {% endfor %}
+                            </select>
+                        </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>
+                            <span>From *</span>
+                            <input type="text" name="start_date" value="{{ today }}" readonly>
+                        </label>
+                    </td>
+                    <td>
+                        <label>
+                            <span>To *</span>
+                            <div class="date-widget">
+                                {{ end_date_widget }}
+                            </div>
+                        </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <label>
+                            <span>Observations *</span>
+                            <textarea id="observations"></textarea>
+                        </label>
+                    </td>
+
+                </tr>
+            </tbody>
+        </table>
+    </form>
+
+</div>
+
+
+{% endblock %}
+

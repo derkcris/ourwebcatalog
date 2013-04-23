@@ -11,9 +11,6 @@
         <a href="{% url 'people_index' %}">View People</a>
     </div>
 
-
-    <h3>Active Loans</h3>
-
     {% if items_availables %}
 
     <table>
@@ -39,9 +36,6 @@
                 <td>
                     <span>
                         {{ item.name }}
-                        <span class="descrip">
-                            {{ item.description }}
-                        </span>
                     </span>
                 </td>
                 <td>

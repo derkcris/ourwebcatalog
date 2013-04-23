@@ -3,6 +3,8 @@ from catalog.models import Item, STATE_AVAILABLE
 from django.shortcuts import render, get_object_or_404
 from django.core.validators import validate_email
 from django.core.exceptions import ValidationError
+from django.forms.extras.widgets import SelectDateWidget
+from datetime import date
 
 
 def index(request):
@@ -22,6 +24,22 @@ def loan_availables(request):
 
 
 def loan_add(request, item_id):
+    item = get_object_or_404(Item, pk=item_id)
+    peoples = People.objects.all().order_by('-last_name')
+    end_date_widget = SelectDateWidget()
+    today = date.today()
+    end_date_render = end_date_widget.render('end_date',
+                                             today)
+    context = {
+        'item': item,
+        'peoples': peoples,
+        'end_date_widget': end_date_render,
+        'today': today,
+    }
+    return render(request, 'loan_add.html', context)
+
+
+def loan_save(request, item_id):
     context = {
     }
     return render(request, 'loan_add.html', context)
