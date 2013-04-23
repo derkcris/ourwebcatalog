@@ -1,0 +1,113 @@
+[
+  {
+    "model":                    "loans.Dependency",
+    "pk":                       1,
+    "fields": {
+      "name":                   "Docente de sistemas",
+      "description":            "Escuela de sistemas y computación UPTC"
+    }
+  },
+  {
+    "model":                    "loans.Dependency",
+    "pk":                       2,
+    "fields": {
+      "name":                   "Estudiante de sistemas",
+      "description":            "Escuela de sistemas y computación UPTC"
+    }
+  },
+  {
+    "model":                    "loans.Dependency",
+    "pk":                       3,
+    "fields": {
+      "name":                   "Docente Especialización DB",
+      "description":            "Especialización en BD"
+    }
+  },
+  {
+    "model":                    "loans.Dependency",
+    "pk":                       4,
+    "fields": {
+      "name":                   "Estudiante Especialización DB",
+      "description":            "Especialización en BD"
+    }
+  },
+  {
+    "model":                    "loans.Dependency",
+    "pk":                       5,
+    "fields": {
+      "name":                   "Docente Maestria IS",
+      "description":            "Maestria en Ingenieria de Sistemas"
+    }
+  },
+  {
+    "model":                    "loans.Dependency",
+    "pk":                       6,
+    "fields": {
+      "name":                   "Estudiante Maestria IS",
+      "description":            "Maestria en Ingenieria de Sistemas"
+    }
+  },
+  {
+    "model":                    "loans.Dependency",
+    "pk":                       7,
+    "fields": {
+      "name":                   "Administrativos Sistemas",
+      "description":            "Escuela de sistemas y computación UPTC"
+    }
+  },
+  {
+    "model":                    "loans.People",
+    "pk":                       1,
+    "fields": {
+      "first_name":             "Jorge Enrique",
+      "last_name":              "Otalora",
+      "email":                  "jorge.otalora@uptc.edu.co",
+      "active":                 "True",
+      "dependency":             1
+    }
+  },
+  {
+    "model":                    "loans.People",
+    "pk":                       2,
+    "fields": {
+      "first_name":             "Andrea",
+      "last_name":              "Alarcon",
+      "email":                  "andrea.alarcon@uptc.edu.co",
+      "active":                 "True",
+      "dependency":             1
+    }
+  },
+  {
+    "model":                    "loans.People",
+    "pk":                       3,
+    "fields": {
+      "first_name":             "Juan Jose",
+      "last_name":              "Camargo",
+      "email":                  "juan.camargo@uptc.edu.co",
+      "active":                 "True",
+      "dependency":             1
+    }
+  },
+  {
+    "model":                    "loans.People",
+    "pk":                       4,
+    "fields": {
+      "first_name":             "Cristian",
+      "last_name":              "Niño",
+      "email":                  "cristian.nino@uptc.edu.co",
+      "active":                 "True",
+      "dependency":             2
+    }
+  },
+  {
+    "model":                    "loans.People",
+    "pk":                       5,
+    "fields": {
+      "first_name":             "Juan",
+      "last_name":              "Perez",
+      "email":                  "juan.perez@uptc.edu.co",
+      "active":                 "True",
+      "dependency":             2
+    }
+  }
+]
