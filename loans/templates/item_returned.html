@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="article">
+    <h2>
+        Items returned
+    </h2>
+
+    <div class="button-bar">
+        <a href="{% url 'item_on_loan' %}">View items on loan</a>
+        <a href="{% url 'item_availables' %}">View items availables</a>
+    </div>
+
+    {% if returned_loans %}
+
+    <table>
+        <thead>
+            <tr>
+                <td>Actions</td>
+                <td>Item</td>
+                <td>Loan to</td>
+                <td>Start date</td>
+                <td>End date</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for loan in returned_loans %}
+            <tr>
+                <td>
+                    <span>
+                        <a href="{% url 'loan' loan.id %}" class="link-button">
+                            View
+                        </a>
+                    </span>
+                </td>
+                <td>
+                    <span>
+                        {{ loan.item.name }}
+                    </span>
+                </td>
+                <td>
+                    <span>
+                        {{ loan.people.get_full_name }}
+                    </span>
+                </td>
+                <td>
+                    <span>
+                        {{ loan.start_date }}
+                    </span>
+                </td>
+                <td>
+                    <span>
+                        {{ loan.end_date }}
+                    </span>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    {% else %}
+        <p>No items on loan availables.</p>
+    {% endif %}
+
+</div>
+
+
+{% endblock %}
+

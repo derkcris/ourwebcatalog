@@ -13,7 +13,7 @@
         <div class="button-bar">
             <input type="submit" class="button" value="Loan"
                 onclick="return confirm('Are you sure to loan {{ item.name }}')"/>
-            <a href="{% url 'loan_availables' %}">Back</a>
+            <a href="{% url 'item_availables' %}">Back</a>
         </div>
 
         <table class="form">
@@ -74,13 +74,12 @@
                 <tr>
                     <td colspan="2">
                         <label>
-                            <span>Observations *</span>
+                            <span>Observations of loan</span>
                             <textarea id="observations" name="observations">
-                                {{ loan.observations|default:'' }}
+                                {{ loan.observations_loan|default:'' }}
                             </textarea>
                         </label>
                     </td>
-
                 </tr>
             </tbody>
         </table>

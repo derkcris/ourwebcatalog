@@ -1,4 +1,4 @@
-from loans.models import Dependency, People, Loan, STATE_IN_LOAN, STATE_RETURNED
+from loans.models import Dependency, People, Loan, STATE_IN_LOAN, STATE_RETURNED, CONDITION_CHOICES
 from catalog.models import Item, STATE_AVAILABLE, STATE_LENT
 from django.shortcuts import render, get_object_or_404
 from django.core.validators import validate_email
@@ -15,20 +15,36 @@ def index(request):
     return render(request, 'dependency_index.html', context)
 
 
+def item_availables(request):
+    items_availables = Item.objects.filter(state=STATE_AVAILABLE).order_by('-name')
+    context = {
+        'items_availables': items_availables,
+    }
+    return render(request, 'item_availables.html', context)
+
+
+def item_on_loan(request):
+    loans_on_loan = Loan.objects.filter(state=STATE_IN_LOAN).order_by('-start_date')
+    context = {
+        'loans_on_loan': loans_on_loan,
+    }
+    return render(request, 'item_on_loan.html', context)
+
+
+def item_returned(request):
+    returned_loans = Loan.objects.filter(state=STATE_RETURNED).order_by('-start_date')
+    context = {
+        'returned_loans': returned_loans,
+    }
+    return render(request, 'item_returned.html', context)
+
+
 def loan(request, loan_id):
     loan = get_object_or_404(Loan, pk=loan_id)
     context = {
         'loan': loan,
     }
     return render(request, 'loan.html', context)
-
-
-def loan_availables(request):
-    items_availables = Item.objects.filter(state=STATE_AVAILABLE).order_by('-name')
-    context = {
-        'items_availables': items_availables,
-    }
-    return render(request, 'loan_availables.html', context)
 
 
 def loan_add(request, item_id):
@@ -61,7 +77,7 @@ def loan_save(request, item_id):
                                        int(request.POST['end_date_month']),
                                        int(request.POST['end_date_day']))
         loan.state = STATE_IN_LOAN
-        loan.observations = request.POST['observations']
+        loan.observations_loan = request.POST['observations']
         loan.people = People.objects.get(pk=request.POST['people'])
 
     except(KeyError, People.DoesNotExist):
@@ -82,6 +98,8 @@ def loan_save(request, item_id):
         }
         return render(request, 'loan_add.html', context)
     else:
+        loan.condition_loan = loan.item.condition
+        loan.condition_return = None
         loan.start_date = datetime.today()
         loan.item.state = STATE_LENT
         loan.people.active_loans = loan.people.active_loans + 1
@@ -91,6 +109,46 @@ def loan_save(request, item_id):
         context = {
             'loan': loan,
             'success_message': 'The loan has been successful.',
+        }
+        return render(request, 'loan.html', context)
+
+
+def loan_return(request, loan_id):
+    loan = get_object_or_404(Loan, pk=loan_id)
+    loan.end_date = datetime.today()
+    context = {
+        'loan': loan,
+        'CONDITION_CHOICES': CONDITION_CHOICES,
+    }
+    return render(request, 'loan_return.html', context)
+
+
+def loan_return_save(request, loan_id):
+    error = False
+    error_message = []
+
+    loan = get_object_or_404(Loan, pk=loan_id)
+    loan.condition_return = request.POST['condition_return']
+    loan.observations_return = request.POST['observations_return']
+
+    if error:
+        context = {
+            'loan': loan,
+            'error_message': error_message,
+        }
+        return render(request, 'loan_return.html', context)
+    else:
+        loan.state = STATE_RETURNED
+        loan.item.state = STATE_AVAILABLE
+        loan.end_date = datetime.today()
+        loan.item.condition = loan.condition_return
+        loan.people.active_loans = loan.people.active_loans - 1
+        loan.save()
+        loan.item.save()
+        loan.people.save()
+        context = {
+            'loan': loan,
+            'success_message': 'The item has been returned.',
         }
         return render(request, 'loan.html', context)
 

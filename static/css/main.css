@@ -324,7 +324,7 @@ tbody{
 }
 
 /* Hide menu bar on Tiny MCE editor */
-#mce_14{
+.mce-container .mce-menubar{
     display:                        none;
 }
 

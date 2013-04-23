@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="article">
+    <h2>
+        Items Availables
+    </h2>
+
+    <div class="button-bar">
+        <a href="{% url 'item_returned' %}">View items returned</a>
+        <a href="{% url 'item_on_loan' %}">View items on loan</a>
+    </div>
+
+    {% if items_availables %}
+
+    <table>
+        <thead>
+            <tr>
+                <td>Actions</td>
+                <td>Item</td>
+                <td>Article</td>
+                <td>Category</td>
+                <td>Condition</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in items_availables %}
+            <tr>
+                <td>
+                    <span>
+                        <a href="{% url 'loan_add' item.id %}" class="link-button">
+                            Loan
+                        </a>
+                    </span>
+                </td>
+                <td>
+                    <span>
+                        {{ item.name }}
+                    </span>
+                </td>
+                <td>
+                    <span>
+                        {{ item.article.name }}
+                    </span>
+                </td>
+                <td>
+                    <span>
+                        {{ item.article.category.name }}
+                    </span>
+                </td>
+                <td>
+                    <span>
+                        {{ item.get_condition }}
+                    </span>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    {% else %}
+        <p>No loans availables.</p>
+    {% endif %}
+
+</div>
+
+
+{% endblock %}
+

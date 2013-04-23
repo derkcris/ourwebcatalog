@@ -12,6 +12,17 @@ STATE_CHOICES = (
     (STATE_RETURNED, 'Returned'),
 )
 
+CONDITION_GOOD = 'G'
+CONDITION_DEFECTIVE = 'D'
+CONDITION_POOR = 'P'
+CONDITION_OUT_OF_SERVICE = 'O'
+CONDITION_CHOICES = (
+    (CONDITION_GOOD, 'Good'),
+    (CONDITION_DEFECTIVE, 'Defective'),
+    (CONDITION_POOR, 'Poor'),
+    (CONDITION_OUT_OF_SERVICE, 'Out of service'),
+)
+
 
 class Dependency(models.Model):
     name = models.CharField(max_length=100)
@@ -46,22 +57,62 @@ class Loan(models.Model):
     state = models.CharField(max_length=1,
                              choices=STATE_CHOICES,
                              default=STATE_IN_LOAN)
-    observations = models.CharField(max_length=200, null=True)
+    condition_loan = models.CharField(max_length=1,
+                                      choices=CONDITION_CHOICES,
+                                      null=False)
+    condition_return = models.CharField(max_length=1,
+                                        choices=CONDITION_CHOICES,
+                                        null=True)
+    observations_loan = models.TextField(null=True)
+    observations_return = models.TextField(null=True)
 
     def __str__(self):
         return self.item.name
 
+    def get_state(self):
+        for s in STATE_CHOICES:
+            if self.state == s[0]:
+                return s[1]
+        return STATE_IN_LOAN
+
+    def get_condition_loan(self):
+        for c in CONDITION_CHOICES:
+            if self.condition_loan == c[0]:
+                return c[1]
+        return ''
+
+    def get_condition_return(self):
+        for c in CONDITION_CHOICES:
+            if self.condition_return == c[0]:
+                return c[1]
+        return ''
+
 
 class DependencyAdmin(admin.ModelAdmin):
-    fields = ['name', 'description']
+    fields = ['name',
+              'description']
 
 
 class PeopleAdmin(admin.ModelAdmin):
-    fields = ['first_name', 'last_name', 'email', 'active', 'dependency']
+    fields = ['first_name',
+              'last_name',
+              'email',
+              'active',
+              'dependency',
+              'active_loans']
 
 
 class LoanAdmin(admin.ModelAdmin):
-    fields = ['item', 'people', 'start_date', 'end_date', 'estimated_end_date', 'observations']
+    fields = ['item',
+              'people',
+              'start_date',
+              'end_date',
+              'estimated_end_date',
+              'state',
+              'condition_loan',
+              'condition_return',
+              'observations_loan',
+              'observations_return']
 
 
 admin.site.register(Dependency, DependencyAdmin)

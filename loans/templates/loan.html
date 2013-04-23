@@ -3,7 +3,108 @@
 {% block content %}
 
 <div class="article">
-    {{ loan }}
+
+    <h2>Details of Loan</h2>
+
+    <div class="button-bar">
+        <a href="javascript:history.back()">Back</a>
+    </div>
+
+    <table class="form">
+        <tbody>
+            <tr>
+                <td>
+                    <label>
+                        <span>Item</span>
+                        <input type="text" name="item" value="{{ loan.item.name|default:'' }}" readonly>
+                    </label>
+                </td>
+                <td>
+                    <label>
+                        <span>Article</span>
+                        <input type="text" name="article" value="{{ loan.item.article.name|default:'' }}" readonly>
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>
+                        <span>Category</span>
+                        <input type="text" name="category" value="{{ loan.item.article.category.name|default:'' }}" readonly>
+                    </label>
+                </td>
+                <td>
+                    <label>
+                        <span>Loan to</span>
+                        <input type="text" name="people" value="{{ loan.people.get_full_name|default:'' }}" readonly>
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>
+                        <span>Initial Condition</span>
+                        <input type="text" name="condition_loan" value="{{ loan.get_condition_loan|default:'' }}" readonly>
+                    </label>
+                </td>
+                <td>
+                    <label>
+                        <span>Final Condition</span>
+                        <input type="text" name="condition_return" value="{{ loan.get_condition_return|default:'' }}" readonly>
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>
+                        <span>Start date</span>
+                        <input type="text" name="start_date" value="{{ loan.start_date }}" readonly>
+                    </label>
+                </td>
+                <td>
+                    <label>
+                        <span>End Date</span>
+                        <input type="text" name="end_date" value="{{ loan.end_date|default:'' }}" readonly>
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>
+                        <span>Estimated end date</span>
+                        <input type="text" name="estimated_end_date" value="{{ loan.estimated_end_date }}" readonly>
+                    </label>
+                </td>
+                <td>
+                    <label>
+                        <span>Current State</span>
+                        <input type="text" name="state" value="{{ loan.get_state }}" readonly>
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <label>
+                        <span>Observations of loan</span>
+                        <textarea id="observations_loan" readonly>
+                            {{ loan.observations_loan|default:'' }}
+                        </textarea>
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <label>
+                        <span>Observations of return</span>
+                        <textarea id="observations_return" readonly>
+                            {{ loan.observations_return|default:'' }}
+                        </textarea>
+                    </label>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
 </div>
 
 

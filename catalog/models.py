@@ -80,15 +80,23 @@ class Item(models.Model):
 
 
 class CategoryAdmin(admin.ModelAdmin):
-    fields = ['name', 'description', 'main_category']
+    fields = ['name',
+              'description',
+              'main_category']
 
 
 class ArticleAdmin(admin.ModelAdmin):
-    fields = ['category', 'name', 'description']
+    fields = ['category',
+              'name',
+              'description']
 
 
 class ItemAdmin(admin.ModelAdmin):
-    fields = ['article', 'name', 'description', 'state', 'condition']
+    fields = ['article',
+              'name',
+              'description',
+              'state',
+              'condition']
 
 # Register class on Admin module
 admin.site.register(Category, CategoryAdmin)
