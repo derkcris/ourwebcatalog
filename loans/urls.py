@@ -3,7 +3,9 @@ from loans import views
 
 urlpatterns = patterns(
     '',
-    url(r'^$', views.people_index, name='people_index'),
+    url(r'^$', views.loan_availables, name='loan_index'),
+    url(r'^availables/$', views.loan_availables, name='loan_availables'),
+    url(r'^add/(?P<item_id>\d+)/$', views.loan_add, name='loan_add'),
     url(r'^dependency/$', views.dependency_index, name='dependency_index'),
     url(r'^dependency/(?P<dependency_id>\d+)/$', views.dependency, name='dependency'),
     url(r'^dependency/add', views.dependency_add, name='dependency_add'),

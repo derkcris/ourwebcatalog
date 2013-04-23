@@ -66,6 +66,7 @@
     <table>
         <thead>
             <tr>
+                <td>Actions</td>
                 <td>Name</td>
                 <td>Description</td>
                 <td>Status</td>
@@ -76,24 +77,31 @@
             {% for item in article.item_set.all %}
             <tr>
                 <td>
-                    <a href="{% url 'item' item.id %}">
+                    <span>
+                        <a href="{% url 'item' item.id %}" class="link-button">
+                            View
+                        </a>
+                    </span>
+                </td>
+                <td>
+                    <span>
                         {{ item.name }}
-                    </a>
+                    </span>
                 </td>
                 <td>
-                    <a href="{% url 'item' item.id %}">
+                    <span>
                         {{ item.description }}
-                    </a>
+                    </span>
                 </td>
                 <td>
-                    <a href="{% url 'item' item.id %}">
+                    <span>
                         {{ item.get_state }}
-                    </a>
+                    </span>
                 </td>
                 <td>
-                    <a href="{% url 'item' item.id %}">
+                    <span>
                         {{ item.get_condition }}
-                    </a>
+                    </span>
                 </td>
             </tr>
             {% endfor %}

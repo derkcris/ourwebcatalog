@@ -14,6 +14,7 @@
     <table>
         <thead>
             <tr>
+                <td>Actions</td>
                 <td>Dependency</td>
                 <td>Name</td>
                 <td>Email</td>
@@ -25,29 +26,36 @@
             {% for people in peoples %}
             <tr>
                 <td>
-                    <a href="{% url 'people' people.id %}">
+                    <span>
+                        <a href="{% url 'people' people.id %}" class="link-button">
+                            View
+                        </a>
+                    </span>
+                </td>
+                <td>
+                    <span>
                         {{ people.dependency.name }}
-                    </a>
+                    </span>
                 </td>
                 <td>
-                    <a href="{% url 'people' people.id %}">
+                    <span>
                         {{ people.get_full_name }}
-                    </a>
+                    </span>
                 </td>
                 <td>
-                    <a href="{% url 'people' people.id %}">
+                    <span>
                         {{ people.email }}
-                    </a>
+                    </span>
                 </td>
                 <td>
-                    <a href="{% url 'people' people.id %}">
+                    <span>
                         {{ people.active }}
-                    </a>
+                    </span>
                 </td>
                 <td>
-                    <a href="{% url 'people' people.id %}">
+                    <span>
                         {{ people.loan_set.count }}
-                    </a>
+                    </span>
                 </td>
             </tr>
             {% endfor %}

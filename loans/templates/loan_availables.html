@@ -3,52 +3,60 @@
 {% block content %}
 
 <div class="article">
-    <h2>Catalog of Articles</h2>
+    <h2>
+        Items Availables
+    </h2>
 
     <div class="button-bar">
-        <a href="{% url 'article_add' %}" class="button">Add Article</a>
-        <a href="{% url 'category_index' %}">View Categories</a>
+        <a href="{% url 'people_index' %}">View People</a>
     </div>
 
-    {% if articles %}
+
+    <h3>Active Loans</h3>
+
+    {% if items_availables %}
+
     <table>
         <thead>
             <tr>
                 <td>Actions</td>
-                <td>Category</td>
+                <td>Item</td>
                 <td>Article</td>
-                <td>Items</td>
-                <td>Available</td>
+                <td>Category</td>
+                <td>Condition</td>
             </tr>
         </thead>
         <tbody>
-            {% for article in articles %}
+            {% for item in items_availables %}
             <tr>
                 <td>
                     <span>
-                        <a href="{% url 'article' article.id %}" class="link-button">
-                            View
+                        <a href="{% url 'loan_add' item.id %}" class="link-button">
+                            Loan
                         </a>
                     </span>
                 </td>
                 <td>
                     <span>
-                        {{ article.category.name }}
+                        {{ item.name }}
+                        <span class="descrip">
+                            {{ item.description }}
+                        </span>
                     </span>
                 </td>
                 <td>
                     <span>
-                        {{ article.name }}
+                        {{ item.article.name }}
                     </span>
                 </td>
                 <td>
                     <span>
-                        {{ article.item_set.count }}
+                        {{ item.article.category.name }}
                     </span>
                 </td>
                 <td>
                     <span>
-                        {{ article.item_set.count }}
+                        {{ item.get_condition }}
                     </span>
                 </td>
             </tr>
@@ -57,11 +65,11 @@
     </table>
 
     {% else %}
-        <p>No articles availables.</p>
+        <p>No loans availables.</p>
     {% endif %}
 
 </div>
 
-{% endblock %}
 
+{% endblock %}
 

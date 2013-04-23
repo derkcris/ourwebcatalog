@@ -14,6 +14,7 @@
     <table>
         <thead>
             <tr>
+                <td>Actions</td>
                 <td>Name</td>
                 <td>Description</td>
                 <td>Main Category</td>
@@ -24,24 +25,31 @@
             {% for category in categories %}
             <tr>
                 <td>
-                    <a href="{% url 'category' category.id %}">
+                    <span>
+                        <a href="{% url 'category' category.id %}" class="link-button">
+                            View
+                        </a>
+                    </span>
+                </td>
+                <td>
+                    <span>
                         {{ category.name }}
-                    </a>
+                    </span>
                 </td>
                 <td>
-                    <a href="{% url 'category' category.id %}">
+                    <span>
                         {{ category.description }}
-                    </a>
+                    </span>
                 </td>
                 <td>
-                    <a href="{% url 'category' category.id %}">
+                    <span>
                         {{ category.main_category|default:'' }}
-                    </a>
+                    </span>
                 </td>
                 <td>
-                    <a href="{% url 'category' category.id %}">
+                    <span>
                         {{ category.article_set.count }}
-                    </a>
+                    </span>
                 </td>
             </tr>
             {% endfor %}

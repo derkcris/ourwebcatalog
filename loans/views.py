@@ -1,4 +1,5 @@
 from loans.models import Dependency, People
+from catalog.models import Item, STATE_AVAILABLE
 from django.shortcuts import render, get_object_or_404
 from django.core.validators import validate_email
 from django.core.exceptions import ValidationError
@@ -10,6 +11,20 @@ def index(request):
         'dependencies': dependencies,
     }
     return render(request, 'dependency_index.html', context)
+
+
+def loan_availables(request):
+    items_availables = Item.objects.filter(state=STATE_AVAILABLE).order_by('-name')
+    context = {
+        'items_availables': items_availables,
+    }
+    return render(request, 'loan_availables.html', context)
+
+
+def loan_add(request, item_id):
+    context = {
+    }
+    return render(request, 'loan_add.html', context)
 
 
 def dependency_index(request):
