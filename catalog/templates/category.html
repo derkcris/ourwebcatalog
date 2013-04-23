@@ -4,10 +4,10 @@
 
 <div class="article">
     <h2>
-        Category {{ category.name }}
+        Categoria {{ category.name }}
         {% if category.main_category %}
         <span>
-            from <a href="{% url 'category' category.main_category.id %}">
+            en <a href="{% url 'category' category.main_category.id %}">
                         {{ category.main_category.name }}
                 </a>
         </span>
@@ -16,14 +16,14 @@
 
 
     <div class="button-bar">
-        <a href="{% url 'category_subcategory_add' category.id %}" class="button">Add Subcategory</a>
-        <a href="{% url 'category_article_add' category.id %}" class="button">Add Article</a>
+        <a href="{% url 'category_subcategory_add' category.id %}" class="button">Adicionar subcategoria</a>
+        <a href="{% url 'category_article_add' category.id %}" class="button">Adicionar articulo</a>
         <a href="{% url 'category_remove' category.id %}" class="button"
-            onclick="return confirm('Are you sure to delete {{ category.name }}')">
-            Remove
+            onclick="return confirm('Esta seguro de querer eliminar {{ category.name }}?')">
+            Eliminar
         </a>
-        <a href="{% url 'category_edit' category.id %}" class="button">Edit</a>
-        <a href="{% url 'category_index' %}">Back</a>
+        <a href="{% url 'category_edit' category.id %}" class="button">Editar</a>
+        <a href="{% url 'category_index' %}">Eliminar</a>
     </div>
 
     <table class="form">
@@ -31,14 +31,14 @@
             <tr>
                 <td>
                     <label>
-                        <span>Name</span>
+                        <span>Nombre</span>
                         <input type="text" name="category_name"
                             value="{{ category.name }}" disabled>
                     </label>
                 </td>
                 <td>
                     <label>
-                        <span>Description</span>
+                        <span>Descripcion</span>
                         <input type="text" name="category_description"
                             value="{{ category.description }}" disabled>
                     </label>
@@ -47,14 +47,14 @@
             <tr>
                 <td>
                     <label>
-                        <span>Category Father</span>
+                        <span>Categoria principal</span>
                         <input type="text" name="category_category"
                             value="{{ category.main_category|default:'' }}" disabled>
                     </label>
                 </td>
                 <td>
                     <label>
-                        <span>Articles</span>
+                        <span>Numero de articulos</span>
                         <input type="text" name="category_article"
                             value="{{ category.article_set.count }}" disabled>
                     </label>
@@ -63,16 +63,16 @@
         </tbody>
     </table>
 
-    <h3>Subcategories</h3>
+    <h3>Sub categorias</h3>
     {% if subcategories %}
     <table>
         <thead>
             <tr>
-                <td>Actions</td>
-                <td>Name</td>
-                <td>Description</td>
-                <td>Main Category</td>
-                <td>Articles</td>
+                <td>Accion</td>
+                <td>Nombre</td>
+                <td>Descripcions</td>
+                <td>Categoria principal</td>
+                <td>Articulos</td>
             </tr>
         </thead>
         <tbody>
@@ -81,7 +81,7 @@
                 <td>
                     <span>
                         <a href="{% url 'category' c.id %}" class="link-button">
-                            View
+                            Ver
                         </a>
                     </span>
                 </td>
@@ -111,22 +111,21 @@
     </table>
 
     {% else %}
-        <p>No subcategories availables.</p>
+        <p>No hay subcategorias disponibles.</p>
     {% endif %}
 
 
 
 
-    <h3>Articles</h3>
+    <h3>Articulos</h3>
     {% if category.article_set.all %}
     <table>
         <thead>
             <tr>
-                <td>Actions</td>
-                <td>Name</td>
-                <td>Description</td>
+                <td>Acciones</td>
+                <td>Nombre</td>
+                <td>Descripcion</td>
                 <td>Items</td>
-                <td>Items Availables</td>
             </tr>
         </thead>
         <tbody>
@@ -135,7 +134,7 @@
                 <td>
                     <span>
                         <a href="{% url 'article' article.id %}" class="link-button">
-                            View
+                            Ver
                         </a>
                     </span>
                 </td>
@@ -154,18 +153,13 @@
                         {{ article.item_set.count }}
                     </span>
                 </td>
-                <td>
-                    <span>
-                        {{ article.item_set.count }}
-                    </span>
-                </td>
             </tr>
             {% endfor %}
         </tbody>
     </table>
 
     {% else %}
-        <p>No articles availables.</p>
+        <p>No hay articulos disponibles.</p>
     {% endif %}
 
 </div>

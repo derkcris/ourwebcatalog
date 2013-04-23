@@ -4,12 +4,12 @@
 
 <div class="article">
     <h2>
-        Items Availables
+        Items disponibles
     </h2>
 
     <div class="button-bar">
-        <a href="{% url 'item_returned' %}">View items returned</a>
-        <a href="{% url 'item_on_loan' %}">View items on loan</a>
+        <a href="{% url 'item_returned' %}">Ver items devueltos returned</a>
+        <a href="{% url 'item_on_loan' %}">Ver items en prestamo</a>
     </div>
 
     {% if items_availables %}
@@ -17,11 +17,11 @@
     <table>
         <thead>
             <tr>
-                <td>Actions</td>
+                <td>Acciones</td>
                 <td>Item</td>
-                <td>Article</td>
-                <td>Category</td>
-                <td>Condition</td>
+                <td>Articulo</td>
+                <td>Categoria</td>
+                <td>Condicion</td>
             </tr>
         </thead>
         <tbody>
@@ -30,7 +30,7 @@
                 <td>
                     <span>
                         <a href="{% url 'loan_add' item.id %}" class="link-button">
-                            Loan
+                            Prestar
                         </a>
                     </span>
                 </td>
@@ -60,7 +60,7 @@
     </table>
 
     {% else %}
-        <p>No loans availables.</p>
+        <p>No hay items disponibles.</p>
     {% endif %}
 
 </div>

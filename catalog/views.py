@@ -80,7 +80,7 @@ def category_save(request, category_id):
         category.save()
         context = {
             'category': category,
-            'success_message': 'The category ' + category.name + ' has been saved.',
+            'success_message': 'La categoria ' + category.name + ' ha sido guardada exitosamente.',
         }
         return render(request, 'category.html', context)
 
@@ -91,7 +91,7 @@ def category_remove(request, category_id):
     categories = Category.objects.all().order_by('-category')
     context = {
         'categories': categories,
-        'success_message': 'The category ' + category.name + ' has been delete.',
+        'success_message': 'La categoria ' + category.name + ' ha sido eliminada exitosamente.',
     }
     return render(request, 'category_index.html', context)
 
@@ -159,13 +159,13 @@ def article_save(request, article_id):
 
         if len(article.name) == 0:
             error = True
-            error_message.append("Name is required")
+            error_message.append("El nombre es requerido")
 
         article.category = Category.objects.get(id=request.POST['category'])
 
     except(KeyError, Category.DoesNotExist):
         error = True
-        error_message.append("Category is required")
+        error_message.append("La categoria es requerida")
 
     if error:
         categories = Category.objects.all().order_by('-name')
@@ -179,7 +179,7 @@ def article_save(request, article_id):
         article.save()
         context = {
             'article': article,
-            'success_message': 'The article ' + article.name + ' has been saved.',
+            'success_message': 'El articulo ' + article.name + ' ha sido guardado exitosamente.',
         }
         return render(request, 'article.html', context)
 
@@ -190,7 +190,7 @@ def article_remove(request, article_id):
     articles = Article.objects.all().order_by('-category')
     context = {
         'articles': articles,
-        'success_message': 'The article ' + article.name + ' has been delete.',
+        'success_message': 'El articulo ' + article.name + ' ha sido eliminado exitosamente.',
     }
     return render(request, 'index.html', context)
 
@@ -243,11 +243,11 @@ def item_save(request, item_id):
 
     if len(item.name) == 0:
         error = True
-        error_message.append("Name is required")
+        error_message.append("El nombre es requerido")
 
     if len(item.condition) == 0:
         error = True
-        error_message.append("Condition is required")
+        error_message.append("La condicion es requerida")
 
     article_id = request.POST['article']
     if article_id != 0 and article_id != '0':
@@ -268,7 +268,7 @@ def item_save(request, item_id):
         article = Article.objects.get(pk=item.article.id)
         context = {
             'article': article,
-            'success_message': 'The item ' + item.name + ' has been saved.',
+            'success_message': 'El item ' + item.name + ' ha sido eliminado exitosamente.',
         }
         return render(request, 'article.html', context)
 
@@ -279,6 +279,6 @@ def item_remove(request, item_id):
     article = Article.objects.get(pk=item.article.id)
     context = {
         'article': article,
-        'success_message': 'The item ' + item.name + ' has been delete.',
+        'success_message': 'El item ' + item.name + ' ha sido eliminado exitosamente.',
     }
     return render(request, 'article.html', context)

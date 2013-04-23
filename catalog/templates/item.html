@@ -6,7 +6,7 @@
     <h2>
         Item {{ item.name }}
         <span>
-            from <a href="{% url 'article' item.article.id %}">
+            de <a href="{% url 'article' item.article.id %}">
                         {{ item.article.name }}
                 </a>
         </span>
@@ -14,11 +14,11 @@
 
     <div class="button-bar">
         <a href="{% url 'item_remove' item.id %}" class="button"
-            onclick="return confirm('Are you sure to delete {{ item.name }}')">
-            Remove
+            onclick="return confirm('Esta seguro de querer eliminar {{ item.name }}?')">
+            Eliminar
         </a>
-        <a href="{% url 'item_edit' item.id %}" class="button">Edit</a>
-        <a href="{% url 'article' item.article.id %}">Back</a>
+        <a href="{% url 'item_edit' item.id %}" class="button">Editar</a>
+        <a href="{% url 'article' item.article.id %}">Volver</a>
     </div>
 
     <table class="form">
@@ -26,14 +26,14 @@
             <tr>
                 <td>
                     <label>
-                        <span>Name</span>
+                        <span>Nombre</span>
                         <input type="text" name="item_name"
                             value="{{ item.name }}" disabled>
                     </label>
                 </td>
                 <td>
                     <label>
-                        <span>Description</span>
+                        <span>Descripcion</span>
                         <input type="text" name="item_description"
                             value="{{ item.description }}" disabled>
                     </label>
@@ -42,14 +42,14 @@
             <tr>
                 <td>
                     <label>
-                        <span>State</span>
+                        <span>Estado</span>
                         <input type="text" name="item_state"
                             value="{{ item.get_state }}" disabled>
                     </label>
                 </td>
                 <td>
                     <label>
-                        <span>Condition</span>
+                        <span>Condicion</span>
                         <input type="text" name="item_condition"
                             value="{{ item.get_condition }}" disabled>
                     </label>

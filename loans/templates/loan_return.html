@@ -7,12 +7,12 @@
      <form action="{% url 'loan_return_save' loan.id %}" method="post" autocomplete="off">
         {% csrf_token %}
 
-        <h2>Return loan item</h2>
+        <h2>Devolucion de item</h2>
 
         <div class="button-bar">
-            <input type="submit" class="button" value="Loan"
-                onclick="return confirm('Are you sure to return {{ loan.item.name }}')"/>
-            <a href="javascript:history.back()">Back</a>
+            <input type="submit" class="button" value="Devolver"
+                onclick="return confirm('¿Esta seguro que desea devolver el item{{ loan.item.name }}?')"/>
+            <a href="javascript:history.back()">Atras</a>
         </div>
 
         <table class="form">
@@ -26,7 +26,7 @@
                     </td>
                     <td>
                         <label>
-                            <span>Loan to</span>
+                            <span>Prestado a</span>
                             <input type="text" name="people" value="{{ loan.people.get_full_name|default:'' }}" readonly>
                         </label>
                     </td>
@@ -34,13 +34,13 @@
                 <tr>
                     <td>
                         <label>
-                            <span>Initial Condition</span>
+                            <span>Condicion inicial</span>
                             <input type="text" name="condition_loan" value="{{ loan.get_condition_loan|default:'' }}" readonly>
                         </label>
                     </td>
                     <td>
                         <label>
-                            <span>Start date</span>
+                            <span>Fecha inicial</span>
                             <input type="text" name="start_date" value="{{ loan.start_date }}" readonly>
                         </label>
                     </td>
@@ -48,7 +48,7 @@
                 <tr>
                     <td>
                         <label>
-                            <span>Estimated end date</span>
+                            <span>Fecha de entrega estimada</span>
                             <input type="text" name="estimated_end_date" value="{{ loan.estimated_end_date }}" readonly>
                         </label>
                     </td>
@@ -57,13 +57,13 @@
                 </tr>
             </tbody>
         </table>
-        <h3>Information of return</h3>
+        <h3>Informacion de la devolucion</h3>
         <table class="form">
             <tbody>
                 <tr>
                     <td>
                         <label>
-                            <span>Final condition</span>
+                            <span>Condicion de la devolucion</span>
                             <select name="condition_return">
                                 {% for c in CONDITION_CHOICES %}
                                     {% if loan.condition_return and loan.condition_return == c.0 %}
@@ -77,7 +77,7 @@
                     </td>
                     <td>
                         <label>
-                            <span>Return date</span>
+                            <span>Fecha de la devolucion</span>
                             <input type="text" name="end_date" value="{{ loan.end_date }}" readonly>
                         </label>
                     </td>
@@ -85,7 +85,7 @@
                 <tr>
                     <td colspan="2">
                         <label>
-                            <span>Observations of return</span>
+                            <span>Observaciones de la devolucion</span>
                             <textarea id="observations_return" name="observations_return">
                                 {{ loan.observations_return|default:'' }}
                             </textarea>

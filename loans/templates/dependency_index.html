@@ -3,21 +3,21 @@
 {% block content %}
 
 <div class="article">
-    <h2>Dependency</h2>
+    <h2>Dependencias</h2>
 
     <div class="button-bar">
-        <a href="{% url 'dependency_add' %}" class="button">Add Dependency</a>
-        <a href="{% url 'people_index' %}">View People</a>
+        <a href="{% url 'dependency_add' %}" class="button">Adicionar dependencias</a>
+        <a href="{% url 'people_index' %}">Ver personas</a>
     </div>
 
     {% if dependencies %}
     <table>
         <thead>
             <tr>
-                <td>Actions</td>
-                <td>Name</td>
-                <td>Description</td>
-                <td>Users</td>
+                <td>Acciones</td>
+                <td>Nombre</td>
+                <td>Descripcion</td>
+                <td>Personas</td>
             </tr>
         </thead>
         <tbody>
@@ -26,7 +26,7 @@
                 <td>
                     <span>
                         <a href="{% url 'dependency' dependency.id %}" class="link-button">
-                            View
+                            Ver
                         </a>
                     </span>
                 </td>
@@ -51,7 +51,7 @@
     </table>
 
     {% else %}
-        <p>No dependencies availables.</p>
+        <p>No hay dependencias disponibles.</p>
     {% endif %}
 
 </div>

@@ -8,18 +8,18 @@
         {% csrf_token %}
 
         {% if category.id %}
-            <h2>Category {{ category.name }}</h2>
+            <h2>Categoria {{ category.name }}</h2>
         {% else %}
-            <h2>New Category</h2>
+            <h2>Nueva categoria</h2>
         {% endif %}
 
 
         <div class="button-bar">
-            <input type="submit" class="button" value="Save">
+            <input type="submit" class="button" value="Guardar">
             {% if category.id %}
-                <a href="{% url 'category' category.id %}">Back</a>
+                <a href="{% url 'category' category.id %}">Volver</a>
             {% else %}
-                <a href="{% url 'category_index' %}">Back</a>
+                <a href="{% url 'category_index' %}">Volver</a>
             {% endif %}
         </div>
 
@@ -28,13 +28,13 @@
                 <tr>
                     <td>
                         <label>
-                            <span>Name *</span>
+                            <span>Nombre *</span>
                             <input type="text" name="name" value="{{ category.name|default:'' }}" >
                         </label>
                     </td>
                     <td>
                         <label>
-                            <span>Description</span>
+                            <span>Descripcion</span>
                             <input type="text" name="description" value="{{ category.description|default:'' }}" >
                         </label>
                     </td>
@@ -42,7 +42,7 @@
                 <tr>
                     <td>
                         <label>
-                            <span>Main Category *</span>
+                            <span>Categoria principal *</span>
                             <select name="main_category">
                                 <option value='0'></option>
                                 {% for c in categories %}

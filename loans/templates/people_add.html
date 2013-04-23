@@ -10,16 +10,16 @@
         {% if people.id %}
             <h2>{{ people.get_full_name }}</h2>
         {% else %}
-            <h2>New People</h2>
+            <h2>Nueva persona</h2>
         {% endif %}
 
 
         <div class="button-bar">
-            <input type="submit" class="button" value="Save">
+            <input type="submit" class="button" value="Guardar">
             {% if people.id %}
-                <a href="{% url 'people' people.id %}">Back</a>
+                <a href="{% url 'people' people.id %}">Volver</a>
             {% else %}
-                <a href="{% url 'people_index' %}">Back</a>
+                <a href="{% url 'people_index' %}">Volver</a>
             {% endif %}
         </div>
 
@@ -28,13 +28,13 @@
                 <tr>
                     <td>
                         <label>
-                            <span>First Name *</span>
+                            <span>Nombres *</span>
                             <input type="text" name="first_name" value="{{ people.first_name|default:'' }}" >
                         </label>
                     </td>
                     <td>
                         <label>
-                            <span>Last Name *</span>
+                            <span>Apellidos *</span>
                             <input type="text" name="last_name" value="{{ people.last_name|default:'' }}" >
                         </label>
                     </td>
@@ -42,19 +42,19 @@
                 <tr>
                     <td>
                         <label>
-                            <span>Email *</span>
+                            <span>Correo *</span>
                             <input type="text" name="email" value="{{ people.email|default:'' }}" >
                         </label>
                     </td>
                     <td>
                         <label>
-                            <span>Dependency *</span>
+                            <span>Dependencia *</span>
                             <select name="dependency">
                                 {% for dependency in dependencies %}
                                     {% if people.dependency and people.dependency.id == dependency.id %}
-                                        <option value="{{ dependency.id }}" selected>{{ dependency }}</option>
+                                        <option value="{{ dependency.id }}" selected>{{ dependency.name }}</option>
                                     {% else %}
-                                        <option value="{{ dependency.id }}">{{ dependency }}</option>
+                                        <option value="{{ dependency.id }}">{{ dependency.name }}</option>
                                     {% endif %}
                                 {% endfor %}
                             </select>
@@ -64,11 +64,11 @@
                 <tr>
                     <td>
                         <label>
-                            <span>Is active *</span>
+                            <span>Esta activo *</span>
                             <input type="radio" name="active" id="active_true" value="True" checked/>
-                            <label for="active_true" >True</label>
+                            <label for="active_true" >Si</label>
                             <input type="radio" name="active" id="active_false" value="False" />
-                            <label for="active_false">False</label>
+                            <label for="active_false">No</label>
                         </label>
                     </td>
                     <td>

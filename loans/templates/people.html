@@ -6,7 +6,7 @@
     <h2>
         {{ people.get_full_name }}
         <span>
-            from <a href="{% url 'dependency' people.dependency.id %}">
+            de <a href="{% url 'dependency' people.dependency.id %}">
                         {{ people.dependency.name }}
                 </a>
         </span>
@@ -14,11 +14,11 @@
 
     <div class="button-bar">
         <a href="{% url 'people_remove' people.id %}" class="button"
-            onclick="return confirm('Are you sure to delete {{ people.name }}')">
-            Remove
+            onclick="return confirm('¿Esta seguro que desea eliminar a la persona {{ people.name }}?')">
+            Eliminar
         </a>
-        <a href="{% url 'people_edit' people.id %}" class="button">Edit</a>
-        <a href="{% url 'people_index' %}">Back</a>
+        <a href="{% url 'people_edit' people.id %}" class="button">Editar</a>
+        <a href="{% url 'people_index' %}">Volver</a>
     </div>
 
     <table class="form">
@@ -26,14 +26,14 @@
             <tr>
                 <td>
                     <label>
-                        <span>First Name</span>
+                        <span>Nombres</span>
                         <input type="text" name="people_first_name"
                             value="{{ people.first_name }}" disabled>
                     </label>
                 </td>
                 <td>
                     <label>
-                        <span>Last Name</span>
+                        <span>Apellidos</span>
                         <input type="text" name="people_last_name"
                             value="{{ people.last_name }}" disabled>
                     </label>
@@ -42,7 +42,7 @@
             <tr>
                 <td>
                     <label>
-                        <span>Email</span>
+                        <span>Correo</span>
                         <input type="text" name="people_email"
                             value="{{ people.email }}" disabled>
                     </label>
@@ -58,14 +58,14 @@
             <tr>
                 <td>
                     <label>
-                        <span>Is active</span>
+                        <span>Esta activo?</span>
                         <input type="text" name="people_active"
                             value="{{ people.active }}" disabled>
                     </label>
                 </td>
                 <td>
                     <label>
-                        <span>Active loans</span>
+                        <span>Prestamos activos</span>
                         <input type="text" name="people"
                             value="{{ people.active_loans }}" disabled>
                     </label>
@@ -74,18 +74,17 @@
         </tbody>
     </table>
 
-    <h3>Items on loan</h3>
+    <h3>Items en prestamo</h3>
 
     {% if active_loans %}
 
     <table>
         <thead>
             <tr>
-                <td>Action</td>
+                <td>Accion</td>
                 <td>Item</td>
-                <td>Start date</td>
-                <td>End date</td>
-                <td>Estimated end date</td>
+                <td>Fecha de inicio</td>
+                <td>Fecha estimada de entrega</td>
             </tr>
         </thead>
         <tbody>
@@ -113,11 +112,6 @@
                 </td>
                 <td>
                     <span>
-                        {{ loan.end_date|default:'' }}
-                    </span>
-                </td>
-                <td>
-                    <span>
                         {{ loan.estimated_end_date }}
                     </span>
                 </td>
@@ -127,13 +121,13 @@
     </table>
 
     {% else %}
-        <p>No loans availables.</p>
+        <p>No hay items en prestamo disponibles.</p>
     {% endif %}
 
-    <h3>Items returned</h3>
+    <h3>Items devueltos</h3>
     <span>
         <a href="{% url 'people_returned' people.id %}" class="link-button">
-            View items returned
+            Ver items devueltos
         </a>
     </span>
 

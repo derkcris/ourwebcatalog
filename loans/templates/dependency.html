@@ -4,17 +4,17 @@
 
 <div class="article">
     <h2>
-        Dependency {{ dependency.name }}
+        Dependencia {{ dependency.name }}
     </h2>
 
     <div class="button-bar">
-        <a href="{% url 'dependency_people_add' dependency.id %}" class="button">Add People</a>
+        <a href="{% url 'dependency_people_add' dependency.id %}" class="button">Adicionar Persona</a>
         <a href="{% url 'dependency_remove' dependency.id %}" class="button"
-            onclick="return confirm('Are you sure to delete {{ dependency.name }}')">
-            Remove
+            onclick="return confirm('¿Esta seguro de querer eliminar la dependencia {{ dependency.name }}?')">
+            Eliminar
         </a>
-        <a href="{% url 'dependency_edit' dependency.id %}" class="button">Edit</a>
-        <a href="{% url 'dependency_index' %}">Back</a>
+        <a href="{% url 'dependency_edit' dependency.id %}" class="button">Editar</a>
+        <a href="{% url 'dependency_index' %}">Volver</a>
     </div>
 
     <table class="form">
@@ -22,14 +22,14 @@
             <tr>
                 <td>
                     <label>
-                        <span>Name</span>
+                        <span>Nombre</span>
                         <input type="text" name="dependency_name"
                             value="{{ dependency.name }}" disabled>
                     </label>
                 </td>
                 <td>
                     <label>
-                        <span>Description</span>
+                        <span>Descripcion</span>
                         <input type="text" name="dependency_description"
                             value="{{ dependency.description }}" disabled>
                     </label>
@@ -38,17 +38,16 @@
         </tbody>
     </table>
 
-    <h3>Users</h3>
+    <h3>Personas de la dependencia</h3>
     {% if dependency.people_set.all %}
     <table>
         <thead>
             <tr>
-                <td>Actions</td>
-                <td>Dependency</td>
-                <td>Name</td>
-                <td>Email</td>
-                <td>Active</td>
-                <td>Loans</td>
+                <td>Acciones</td>
+                <td>Nombre</td>
+                <td>Correo</td>
+                <td>Activo</td>
+                <td>Prestamos</td>
             </tr>
         </thead>
         <tbody>
@@ -57,13 +56,8 @@
                 <td>
                     <span>
                         <a href="{% url 'people' people.id %}" class="link-button">
-                            View
+                            Ver
                         </a>
-                    </span>
-                </td>
-                <td>
-                    <span>
-                        {{ people.dependency.name }}
                     </span>
                 </td>
                 <td>
@@ -87,7 +81,7 @@
     </table>
 
     {% else %}
-        <p>No users availables.</p>
+        <p>No hay personas disponibles.</p>
     {% endif %}
 
 </div>

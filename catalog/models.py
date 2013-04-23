@@ -7,10 +7,10 @@ STATE_LENT = 'L'
 STATE_LOST = 'O'
 STATE_NOT_AVAILABLE = 'N'
 STATE_CHOICES = (
-    (STATE_AVAILABLE, 'Available'),
-    (STATE_LENT, 'Lent'),
-    (STATE_LOST, 'Lost'),
-    (STATE_NOT_AVAILABLE, 'Not available'),
+    (STATE_AVAILABLE, 'Disponible'),
+    (STATE_LENT, 'Prestado'),
+    (STATE_LOST, 'Perdido'),
+    (STATE_NOT_AVAILABLE, 'No disponoble'),
 )
 
 CONDITION_GOOD = 'G'
@@ -18,10 +18,10 @@ CONDITION_DEFECTIVE = 'D'
 CONDITION_POOR = 'P'
 CONDITION_OUT_OF_SERVICE = 'O'
 CONDITION_CHOICES = (
-    (CONDITION_GOOD, 'Good'),
-    (CONDITION_DEFECTIVE, 'Defective'),
-    (CONDITION_POOR, 'Poor'),
-    (CONDITION_OUT_OF_SERVICE, 'Out of service'),
+    (CONDITION_GOOD, 'Bueno'),
+    (CONDITION_DEFECTIVE, 'Defectuoso'),
+    (CONDITION_POOR, 'Pesimo'),
+    (CONDITION_OUT_OF_SERVICE, 'Fuera de servicio'),
 )
 
 

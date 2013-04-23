@@ -10,16 +10,16 @@
         {% if item.id %}
             <h2>Item {{ item.name }}</h2>
         {% else %}
-            <h2>New Item</h2>
+            <h2>Nuevo item</h2>
         {% endif %}
 
 
         <div class="button-bar">
-            <input type="submit" class="button" value="Save">
+            <input type="submit" class="button" value="Guardar">
             {% if item.id %}
-                <a href="{% url 'item' item.id %}">Back</a>
+                <a href="{% url 'item' item.id %}">Volver</a>
             {% else %}
-                <a href="{% url 'index' %}">Back</a>
+                <a href="{% url 'catalog' %}">Volver</a>
             {% endif %}
         </div>
 
@@ -28,7 +28,7 @@
                 <tr>
                     <td>
                         <label>
-                            <span>Article *</span>
+                            <span>Articulo *</span>
                             <select name="article" {% if item.id %} disabled {% endif %}>
                                 {% for article in articles %}
                                     {% if item.article and item.article.id == article.id %}
@@ -46,13 +46,13 @@
                 <tr>
                     <td>
                         <label>
-                            <span>Name *</span>
+                            <span>Nombre *</span>
                             <input type="text" name="name" value="{{ item.name|default:'' }}" >
                         </label>
                     </td>
                     <td>
                         <label>
-                            <span>Description</span>
+                            <span>Descripcion</span>
                             <input type="text" name="description" value="{{ item.description|default:'' }}" >
                         </label>
                     </td>
@@ -60,7 +60,7 @@
                 <tr>
                     <td>
                         <label>
-                            <span>Condition *</span>
+                            <span>Condicion *</span>
                             <select name="condition">
                                 {% for c in CONDITION_CHOICES %}
                                     {% if item.condition and item.condition == c.0 %}
@@ -74,7 +74,7 @@
                     </td>
                     <td>
                         <label>
-                            <span>State *</span>
+                            <span>Estado *</span>
                             <select name="state" disabled>
                                 {% for s in STATE_CHOICES %}
                                     {% if item.state and item.state == s.0 %}

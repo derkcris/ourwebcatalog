@@ -3,23 +3,23 @@
 {% block content %}
 
 <div class="article">
-    <h2>People of System</h2>
+    <h2>Personas del sistema</h2>
 
     <div class="button-bar">
-        <a href="{% url 'people_add' %}" class="button">Add People</a>
-        <a href="{% url 'dependency_index' %}">View Dependencies</a>
+        <a href="{% url 'people_add' %}" class="button">Adicionar persona</a>
+        <a href="{% url 'dependency_index' %}">Ver dependencias</a>
     </div>
 
     {% if peoples %}
     <table>
         <thead>
             <tr>
-                <td>Actions</td>
-                <td>Dependency</td>
-                <td>Name</td>
-                <td>Email</td>
-                <td>Active</td>
-                <td>Loans</td>
+                <td>Acciones</td>
+                <td>Dependencia</td>
+                <td>Nombre</td>
+                <td>Correo</td>
+                <td>Activo</td>
+                <td>Prestamos</td>
             </tr>
         </thead>
         <tbody>
@@ -28,7 +28,7 @@
                 <td>
                     <span>
                         <a href="{% url 'people' people.id %}" class="link-button">
-                            View
+                            Ver
                         </a>
                     </span>
                 </td>
@@ -63,7 +63,7 @@
     </table>
 
     {% else %}
-        <p>No people available.</p>
+        <p>No hay personas disponibles.</p>
     {% endif %}
 
 </div>

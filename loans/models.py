@@ -7,9 +7,9 @@ STATE_IN_LOAN = 'L'
 STATE_LOST = 'O'
 STATE_RETURNED = 'R'
 STATE_CHOICES = (
-    (STATE_IN_LOAN, 'In loan'),
-    (STATE_LOST, 'Lost'),
-    (STATE_RETURNED, 'Returned'),
+    (STATE_IN_LOAN, 'En prestamo'),
+    (STATE_LOST, 'Perdido'),
+    (STATE_RETURNED, 'Devuelto'),
 )
 
 CONDITION_GOOD = 'G'
@@ -17,10 +17,10 @@ CONDITION_DEFECTIVE = 'D'
 CONDITION_POOR = 'P'
 CONDITION_OUT_OF_SERVICE = 'O'
 CONDITION_CHOICES = (
-    (CONDITION_GOOD, 'Good'),
-    (CONDITION_DEFECTIVE, 'Defective'),
-    (CONDITION_POOR, 'Poor'),
-    (CONDITION_OUT_OF_SERVICE, 'Out of service'),
+    (CONDITION_GOOD, 'Bueno'),
+    (CONDITION_DEFECTIVE, 'Defectuoso'),
+    (CONDITION_POOR, 'Pesimo'),
+    (CONDITION_OUT_OF_SERVICE, 'Fuera de servicio'),
 )
 
 

@@ -3,22 +3,22 @@
 {% block content %}
 
 <div class="article">
-    <h2>Categories</h2>
+    <h2>Categorias</h2>
 
     <div class="button-bar">
-        <a href="{% url 'category_add' %}" class="button">Add Category</a>
-        <a href="{% url 'catalog' %}">View Articles</a>
+        <a href="{% url 'category_add' %}" class="button">Adicionar categoria</a>
+        <a href="{% url 'catalog' %}">Ver articulos</a>
     </div>
 
     {% if categories %}
     <table>
         <thead>
             <tr>
-                <td>Actions</td>
-                <td>Name</td>
-                <td>Description</td>
-                <td>Main Category</td>
-                <td>Articles</td>
+                <td>Acciones</td>
+                <td>Nombre</td>
+                <td>Descripcion</td>
+                <td>Categoria principal</td>
+                <td>Articulos</td>
             </tr>
         </thead>
         <tbody>
@@ -27,7 +27,7 @@
                 <td>
                     <span>
                         <a href="{% url 'category' category.id %}" class="link-button">
-                            View
+                            Ver
                         </a>
                     </span>
                 </td>
@@ -57,7 +57,7 @@
     </table>
 
     {% else %}
-        <p>No categories availables.</p>
+        <p>No hay categorias disponibles.</p>
     {% endif %}
 
 </div>

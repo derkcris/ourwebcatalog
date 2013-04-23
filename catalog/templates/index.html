@@ -3,7 +3,7 @@
 {% block content %}
 
 <div class="article">
-    <h2>Catalog of Articles</h2>
+    <h2>Catalogo de articulos</h2>
 
     <div class="button-bar">
         <a href="{% url 'article_add' %}" class="button">Add Article</a>
@@ -14,11 +14,10 @@
     <table>
         <thead>
             <tr>
-                <td>Actions</td>
-                <td>Category</td>
-                <td>Article</td>
-                <td>Items</td>
-                <td>Available</td>
+                <td>Acciones</td>
+                <td>Categoria</td>
+                <td>Articulo</td>
+                <td>Numero de items</td>
             </tr>
         </thead>
         <tbody>
@@ -27,7 +26,7 @@
                 <td>
                     <span>
                         <a href="{% url 'article' article.id %}" class="link-button">
-                            View
+                            Ver
                         </a>
                     </span>
                 </td>
@@ -46,18 +45,13 @@
                         {{ article.item_set.count }}
                     </span>
                 </td>
-                <td>
-                    <span>
-                        {{ article.item_set.count }}
-                    </span>
-                </td>
             </tr>
             {% endfor %}
         </tbody>
     </table>
 
     {% else %}
-        <p>No articles availables.</p>
+        <p>No hay articulos disponibles.</p>
     {% endif %}
 
 </div>

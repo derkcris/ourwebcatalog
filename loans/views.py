@@ -82,7 +82,7 @@ def loan_save(request, item_id):
 
     except(KeyError, People.DoesNotExist):
         error = True
-        error_message.append("People is required")
+        error_message.append("La persona es requerida")
 
     if error:
         peoples = People.objects.all().order_by('-last_name')
@@ -108,7 +108,7 @@ def loan_save(request, item_id):
         loan.people.save()
         context = {
             'loan': loan,
-            'success_message': 'The loan has been successful.',
+            'success_message': 'El prestamo se ha relizado exitosamente.',
         }
         return render(request, 'loan.html', context)
 
@@ -148,7 +148,7 @@ def loan_return_save(request, loan_id):
         loan.people.save()
         context = {
             'loan': loan,
-            'success_message': 'The item has been returned.',
+            'success_message': 'El item ha sido devuelto exitosamente.',
         }
         return render(request, 'loan.html', context)
 
@@ -198,7 +198,7 @@ def dependency_save(request, dependency_id):
 
     if len(dependency.name) == 0:
         error = True
-        error_message.append("Name is required")
+        error_message.append("El nombre es requerido")
 
     if error:
         context = {
@@ -210,7 +210,7 @@ def dependency_save(request, dependency_id):
         dependency.save()
         context = {
             'dependency': dependency,
-            'success_message': 'The dependency ' + dependency.name + ' has been saved.',
+            'success_message': 'La dependencia ' + dependency.name + ' ha sido guardada exitosamente.',
         }
         return render(request, 'dependency.html', context)
 
@@ -221,7 +221,7 @@ def dependency_remove(request, dependency_id):
     dependencies = Dependency.objects.all().order_by('-dependency')
     context = {
         'dependencies': dependencies,
-        'success_message': 'The dependency ' + dependency.name + ' has been delete.',
+        'success_message': 'La dependencia ' + dependency.name + ' ha sido eliminada exitosamente.',
     }
     return render(request, 'dependency_index.html', context)
 
@@ -303,28 +303,28 @@ def people_save(request, people_id):
 
         if len(people.first_name) == 0:
             error = True
-            error_message.append("First name is required")
+            error_message.append("El nombre es requerido")
 
         if len(people.last_name) == 0:
             error = True
-            error_message.append("Last name is required")
+            error_message.append("El apellido es requerido")
 
         if active:
             people.active = bool(active)
         else:
             error = True
-            error_message.append("Active is required")
+            error_message.append("El campo activo es requerido")
 
         people.dependency = Dependency.objects.get(id=request.POST['dependency'])
         validate_email(people.email)
 
     except(KeyError, Dependency.DoesNotExist):
         error = True
-        error_message.append("Dependency is required")
+        error_message.append("La dependencia es requerida")
 
     except ValidationError:
         error = True
-        error_message.append("Email has not format")
+        error_message.append("El correo no tiene un formato adecuado")
 
     if error:
         dependencies = Dependency.objects.all().order_by('-name')
@@ -338,7 +338,7 @@ def people_save(request, people_id):
         people.save()
         context = {
             'people': people,
-            'success_message': '' + people.get_full_name() + ' has been saved.',
+            'success_message': 'La persona ' + people.get_full_name() + ' ha sido guardado exitosamente',
         }
         return render(request, 'people.html', context)
 
@@ -349,6 +349,6 @@ def people_remove(request, people_id):
     peoples = People.objects.all().order_by('-category')
     context = {
         'peoples': peoples,
-        'success_message': 'The people ' + people.get_full_name() + ' has been delete.',
+        'success_message': 'La persona  ' + people.get_full_name() + ' ha sido eliminada exitosamente.',
     }
     return render(request, 'people_index.html', context)

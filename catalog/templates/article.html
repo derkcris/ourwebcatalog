@@ -4,22 +4,22 @@
 
 <div class="article">
     <h2>
-        Article {{ article.name }}
+        Articulo {{ article.name }}
         <span>
-            from <a href="{% url 'category' article.category.id %}">
+            en <a href="{% url 'category' article.category.id %}">
                         {{ article.category.name }}
                 </a>
         </span>
     </h2>
 
     <div class="button-bar">
-        <a href="{% url 'item_add' article.id %}" class="button">Add Item</a>
+        <a href="{% url 'item_add' article.id %}" class="button">Adicionar Item</a>
         <a href="{% url 'article_remove' article.id %}" class="button"
-            onclick="return confirm('Are you sure to delete {{ article.name }}')">
-            Remove
+            onclick="return confirm('¿Esta seguro de querer eliminar {{ article.name }}?')">
+            Eliminar
         </a>
-        <a href="{% url 'article_edit' article.id %}" class="button">Edit</a>
-        <a href="{% url 'catalog' %}">Back</a>
+        <a href="{% url 'article_edit' article.id %}" class="button">Editar</a>
+        <a href="{% url 'catalog' %}">Volver</a>
     </div>
 
     <table class="form">
@@ -27,14 +27,14 @@
             <tr>
                 <td>
                     <label>
-                        <span>Name</span>
+                        <span>Nombre</span>
                         <input type="text" name="article_name"
                             value="{{ article.name }}" disabled>
                     </label>
                 </td>
                 <td>
                     <label>
-                        <span>Description</span>
+                        <span>Descripcion</span>
                         <input type="text" name="article_description"
                             value="{{ article.description }}" disabled>
                     </label>
@@ -43,14 +43,14 @@
             <tr>
                 <td>
                     <label>
-                        <span>Category</span>
+                        <span>Categoria</span>
                         <input type="text" name="article_category"
                             value="{{ article.category }}" disabled>
                     </label>
                 </td>
                 <td>
                     <label>
-                        <span>Items</span>
+                        <span>Numero de items</span>
                         <input type="text" name="article"
                             value="{{ article.item_set.count }}" disabled>
                     </label>
@@ -66,11 +66,11 @@
     <table>
         <thead>
             <tr>
-                <td>Actions</td>
-                <td>Name</td>
-                <td>Description</td>
-                <td>Status</td>
-                <td>Condition</td>
+                <td>Accion</td>
+                <td>Nombre</td>
+                <td>Descripcion</td>
+                <td>Estado</td>
+                <td>Condicion</td>
             </tr>
         </thead>
         <tbody>
@@ -79,7 +79,7 @@
                 <td>
                     <span>
                         <a href="{% url 'item' item.id %}" class="link-button">
-                            View
+                            Ver
                         </a>
                     </span>
                 </td>
@@ -109,7 +109,7 @@
     </table>
 
     {% else %}
-        <p>No items availables.</p>
+        <p>No hay items disponibles.</p>
     {% endif %}
 
 </div>

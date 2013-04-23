@@ -7,13 +7,13 @@
     <form action="{% url 'loan_save' item.id %}" method="post" autocomplete="off">
         {% csrf_token %}
 
-        <h2>Loan of {{ item.name }}</h2>
+        <h2>Dar en prestamo el item{{ item.name }}</h2>
 
 
         <div class="button-bar">
-            <input type="submit" class="button" value="Loan"
-                onclick="return confirm('Are you sure to loan {{ item.name }}')"/>
-            <a href="{% url 'item_availables' %}">Back</a>
+            <input type="submit" class="button" value="Prestar"
+                onclick="return confirm('¿Esta seguro que desea dar en prestamo el articulo {{ item.name }}?')"/>
+            <a href="{% url 'item_availables' %}">Volver</a>
         </div>
 
         <table class="form">
@@ -27,7 +27,7 @@
                     </td>
                     <td>
                         <label>
-                            <span>Article *</span>
+                            <span>Articulo *</span>
                             <input type="text" name="category" value="{{ item.article|default:'' }}" readonly>
                         </label>
                     </td>
@@ -35,13 +35,13 @@
                 <tr>
                     <td>
                         <label>
-                            <span>Condition *</span>
+                            <span>Condicion del item *</span>
                             <input type="text" name="condition" value="{{ item.get_condition|default:'' }}" readonly>
                         </label>
                     </td>
                     <td>
                         <label>
-                            <span>Loan to *</span>
+                            <span>Prestado a *</span>
                             <select name="people">
                                 <option value="0"></option>
                                 {% for people in peoples %}
@@ -58,13 +58,13 @@
                 <tr>
                     <td>
                         <label>
-                            <span>From *</span>
+                            <span>Desde *</span>
                             <input type="text" name="start_date" value="{{ loan.start_date }}" readonly>
                         </label>
                     </td>
                     <td>
                         <label>
-                            <span>To *</span>
+                            <span>Hasta *</span>
                             <div class="date-widget">
                                 {{ end_date_widget }}
                             </div>
@@ -74,7 +74,7 @@
                 <tr>
                     <td colspan="2">
                         <label>
-                            <span>Observations of loan</span>
+                            <span>Observaciones del prestamo</span>
                             <textarea id="observations" name="observations">
                                 {{ loan.observations_loan|default:'' }}
                             </textarea>
