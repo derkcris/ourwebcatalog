@@ -3,15 +3,17 @@ from django.shortcuts import render, get_object_or_404
 
 
 def index(request):
-    articles = Article.objects.all().order_by('-category')
+    categories = Category.objects.all().order_by('name')
+    articles = Article.objects.all().order_by('category')
     context = {
+        'categories': categories,
         'articles': articles
     }
     return render(request, 'index.html', context)
 
 
 def category_index(request):
-    categories = Category.objects.all().order_by('-name')
+    categories = Category.objects.all().order_by('name')
     context = {
         'categories': categories,
     }
@@ -19,9 +21,11 @@ def category_index(request):
 
 
 def category(request, category_id):
+    categories = Category.objects.all().order_by('name')
     category = get_object_or_404(Category, pk=category_id)
     subcategories = Category.objects.filter(main_category_id=category.id).order_by('-name')
     context = {
+        'categories': categories,
         'category': category,
         'subcategories': subcategories,
     }
@@ -29,8 +33,8 @@ def category(request, category_id):
 
 
 def category_add(request):
+    categories = Category.objects.all().order_by('name')
     category = Category()
-    categories = Category.objects.all().order_by('-name')
     context = {
         'category': category,
         'categories': categories,
@@ -39,8 +43,8 @@ def category_add(request):
 
 
 def category_edit(request, category_id):
+    categories = Category.objects.all().order_by('name')
     category = get_object_or_404(Category, pk=category_id)
-    categories = Category.objects.all().order_by('-name')
     context = {
         'category': category,
         'categories': categories,
@@ -49,6 +53,7 @@ def category_edit(request, category_id):
 
 
 def category_save(request, category_id):
+    categories = Category.objects.all().order_by('name')
     error = False
     error_message = []
 
@@ -69,7 +74,6 @@ def category_save(request, category_id):
         category.main_category = None
 
     if error:
-        categories = Category.objects.all().order_by('-name')
         context = {
             'category': category,
             'error_message': error_message,
@@ -79,6 +83,7 @@ def category_save(request, category_id):
     else:
         category.save()
         context = {
+            'categories': categories,
             'category': category,
             'success_message': 'La categoria ' + category.name + ' ha sido guardada exitosamente.',
         }
@@ -86,9 +91,9 @@ def category_save(request, category_id):
 
 
 def category_remove(request, category_id):
+    categories = Category.objects.all().order_by('name')
     category = get_object_or_404(Category, pk=category_id)
     category.delete()
-    categories = Category.objects.all().order_by('-category')
     context = {
         'categories': categories,
         'success_message': 'La categoria ' + category.name + ' ha sido eliminada exitosamente.',
@@ -97,9 +102,9 @@ def category_remove(request, category_id):
 
 
 def category_article_add(request, category_id):
+    categories = Category.objects.all().order_by('name')
     article = Article()
     article.category = get_object_or_404(Category, pk=category_id)
-    categories = Category.objects.all().order_by('-name')
     context = {
         'article': article,
         'categories': categories,
@@ -108,9 +113,9 @@ def category_article_add(request, category_id):
 
 
 def category_subcategory_add(request, category_id):
+    categories = Category.objects.all().order_by('name')
     category = Category()
     category.main_category = get_object_or_404(Category, pk=category_id)
-    categories = Category.objects.all().order_by('-name')
     context = {
         'category': category,
         'categories': categories,
@@ -119,16 +124,18 @@ def category_subcategory_add(request, category_id):
 
 
 def article(request, article_id):
+    categories = Category.objects.all().order_by('name')
     article = get_object_or_404(Article, pk=article_id)
     context = {
+        'categories': categories,
         'article': article,
     }
     return render(request, 'article.html', context)
 
 
 def article_add(request):
+    categories = Category.objects.all().order_by('name')
     article = Article()
-    categories = Category.objects.all().order_by('-name')
     context = {
         'article': article,
         'categories': categories,
@@ -137,8 +144,8 @@ def article_add(request):
 
 
 def article_edit(request, article_id):
+    categories = Category.objects.all().order_by('name')
     article = get_object_or_404(Article, pk=article_id)
-    categories = Category.objects.all().order_by('-name')
     context = {
         'article': article,
         'categories': categories,
@@ -147,6 +154,7 @@ def article_edit(request, article_id):
 
 
 def article_save(request, article_id):
+    categories = Category.objects.all().order_by('name')
     error = False
     error_message = []
     try:
@@ -168,7 +176,6 @@ def article_save(request, article_id):
         error_message.append("La categoria es requerida")
 
     if error:
-        categories = Category.objects.all().order_by('-name')
         context = {
             'article': article,
             'error_message': error_message,
@@ -178,6 +185,7 @@ def article_save(request, article_id):
     else:
         article.save()
         context = {
+            'categories': categories,
             'article': article,
             'success_message': 'El articulo ' + article.name + ' ha sido guardado exitosamente.',
         }
@@ -185,10 +193,12 @@ def article_save(request, article_id):
 
 
 def article_remove(request, article_id):
+    categories = Category.objects.all().order_by('name')
     article = get_object_or_404(Article, pk=article_id)
     article.delete()
-    articles = Article.objects.all().order_by('-category')
+    articles = Article.objects.all().order_by('category')
     context = {
+        'categories': categories,
         'articles': articles,
         'success_message': 'El articulo ' + article.name + ' ha sido eliminado exitosamente.',
     }
@@ -196,18 +206,22 @@ def article_remove(request, article_id):
 
 
 def item(request, item_id):
+    categories = Category.objects.all().order_by('name')
     item = get_object_or_404(Item, pk=item_id)
     context = {
+        'categories': categories,
         'item': item,
     }
     return render(request, 'item.html', context)
 
 
 def item_add(request, article_id):
+    categories = Category.objects.all().order_by('name')
     item = Item()
     item.article = get_object_or_404(Article, pk=article_id)
-    articles = Article.objects.all().order_by('-name')
+    articles = Article.objects.all().order_by('name')
     context = {
+        'categories': categories,
         'item': item,
         'articles': articles,
         'STATE_CHOICES': STATE_CHOICES,
@@ -217,9 +231,11 @@ def item_add(request, article_id):
 
 
 def item_edit(request, item_id):
+    categories = Category.objects.all().order_by('name')
     item = get_object_or_404(Item, pk=item_id)
-    articles = Article.objects.all().order_by('-name')
+    articles = Article.objects.all().order_by('name')
     context = {
+        'categories': categories,
         'item': item,
         'articles': articles,
         'STATE_CHOICES': STATE_CHOICES,
@@ -229,6 +245,7 @@ def item_edit(request, item_id):
 
 
 def item_save(request, item_id):
+    categories = Category.objects.all().order_by('name')
     error = False
     error_message = []
 
@@ -256,8 +273,9 @@ def item_save(request, item_id):
         item.article = None
 
     if error:
-        articles = Article.objects.all().order_by('-name')
+        articles = Article.objects.all().order_by('name')
         context = {
+            'categories': categories,
             'item': item,
             'error_message': error_message,
             'articles': articles,
@@ -267,6 +285,7 @@ def item_save(request, item_id):
         item.save()
         article = Article.objects.get(pk=item.article.id)
         context = {
+            'categories': categories,
             'article': article,
             'success_message': 'El item ' + item.name + ' ha sido eliminado exitosamente.',
         }
@@ -274,10 +293,12 @@ def item_save(request, item_id):
 
 
 def item_remove(request, item_id):
+    categories = Category.objects.all().order_by('name')
     item = get_object_or_404(Category, pk=item_id)
     item.delete()
     article = Article.objects.get(pk=item.article.id)
     context = {
+        'categories': categories,
         'article': article,
         'success_message': 'El item ' + item.name + ' ha sido eliminado exitosamente.',
     }

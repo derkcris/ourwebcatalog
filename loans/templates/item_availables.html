@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "base_loans.html" %}
 
 {% block content %}
 
@@ -6,11 +6,6 @@
     <h2>
         Items disponibles
     </h2>
-
-    <div class="button-bar">
-        <a href="{% url 'item_returned' %}">Ver items devueltos returned</a>
-        <a href="{% url 'item_on_loan' %}">Ver items en prestamo</a>
-    </div>
 
     {% if items_availables %}
 

@@ -162,30 +162,37 @@ def dependency_index(request):
 
 
 def dependency(request, dependency_id):
+    dependencies = Dependency.objects.all().order_by('-name')
     dependency = get_object_or_404(Dependency, pk=dependency_id)
     context = {
+        'dependencies': dependencies,
         'dependency': dependency,
     }
     return render(request, 'dependency.html', context)
 
 
 def dependency_add(request):
+    dependencies = Dependency.objects.all().order_by('-name')
     dependency = Dependency()
     context = {
+        'dependencies': dependencies,
         'dependency': dependency,
     }
     return render(request, 'dependency_add.html', context)
 
 
 def dependency_edit(request, dependency_id):
+    dependencies = Dependency.objects.all().order_by('-name')
     dependency = get_object_or_404(Dependency, pk=dependency_id)
     context = {
+        'dependencies': dependencies,
         'dependency': dependency,
     }
     return render(request, 'dependency_add.html', context)
 
 
 def dependency_save(request, dependency_id):
+    dependencies = Dependency.objects.all().order_by('-name')
     error = False
     error_message = []
 
@@ -202,6 +209,7 @@ def dependency_save(request, dependency_id):
 
     if error:
         context = {
+            'dependencies': dependencies,
             'dependency': dependency,
             'error_message': error_message,
         }
@@ -209,6 +217,7 @@ def dependency_save(request, dependency_id):
     else:
         dependency.save()
         context = {
+            'dependencies': dependencies,
             'dependency': dependency,
             'success_message': 'La dependencia ' + dependency.name + ' ha sido guardada exitosamente.',
         }
@@ -216,9 +225,9 @@ def dependency_save(request, dependency_id):
 
 
 def dependency_remove(request, dependency_id):
+    dependencies = Dependency.objects.all().order_by('-dependency')
     dependency = get_object_or_404(Dependency, pk=dependency_id)
     dependency.delete()
-    dependencies = Dependency.objects.all().order_by('-dependency')
     context = {
         'dependencies': dependencies,
         'success_message': 'La dependencia ' + dependency.name + ' ha sido eliminada exitosamente.',
@@ -227,29 +236,33 @@ def dependency_remove(request, dependency_id):
 
 
 def dependency_people_add(request, dependency_id):
+    dependencies = Dependency.objects.all().order_by('-name')
     people = People()
     people.dependency = get_object_or_404(Dependency, pk=dependency_id)
-    dependencies = Dependency.objects.all().order_by('-name')
     context = {
-        'people': people,
         'dependencies': dependencies,
+        'people': people,
     }
     return render(request, 'people_add.html', context)
 
 
 def people_index(request):
+    dependencies = Dependency.objects.all().order_by('-name')
     peoples = People.objects.all().order_by('-last_name')
     context = {
+        'dependencies': dependencies,
         'peoples': peoples,
     }
     return render(request, 'people_index.html', context)
 
 
 def people(request, people_id):
+    dependencies = Dependency.objects.all().order_by('-name')
     people = get_object_or_404(People, pk=people_id)
     active_loans = Loan.objects.filter(people_id=people.id,
                                        state=STATE_IN_LOAN).order_by('-start_date')
     context = {
+        'dependencies': dependencies,
         'people': people,
         'active_loans': active_loans,
     }
@@ -257,10 +270,12 @@ def people(request, people_id):
 
 
 def people_returned(request, people_id):
+    dependencies = Dependency.objects.all().order_by('-name')
     people = get_object_or_404(People, pk=people_id)
     return_loans = Loan.objects.filter(people_id=people.id,
                                        state=STATE_RETURNED).order_by('-start_date')
     context = {
+        'dependencies': dependencies,
         'people': people,
         'return_loans': return_loans,
     }
@@ -268,26 +283,27 @@ def people_returned(request, people_id):
 
 
 def people_add(request):
-    people = People()
     dependencies = Dependency.objects.all().order_by('-name')
+    people = People()
     context = {
-        'people': people,
         'dependencies': dependencies,
+        'people': people,
     }
     return render(request, 'people_add.html', context)
 
 
 def people_edit(request, people_id):
-    people = get_object_or_404(People, pk=people_id)
     dependencies = Dependency.objects.all().order_by('-name')
+    people = get_object_or_404(People, pk=people_id)
     context = {
-        'people': people,
         'dependencies': dependencies,
+        'people': people,
     }
     return render(request, 'people_add.html', context)
 
 
 def people_save(request, people_id):
+    dependencies = Dependency.objects.all().order_by('-name')
     error = False
     error_message = []
     try:
@@ -329,14 +345,15 @@ def people_save(request, people_id):
     if error:
         dependencies = Dependency.objects.all().order_by('-name')
         context = {
+            'dependencies': dependencies,
             'people': people,
             'error_message': error_message,
-            'dependencies': dependencies,
         }
         return render(request, 'people_add.html', context)
     else:
         people.save()
         context = {
+            'dependencies': dependencies,
             'people': people,
             'success_message': 'La persona ' + people.get_full_name() + ' ha sido guardado exitosamente',
         }
@@ -344,10 +361,12 @@ def people_save(request, people_id):
 
 
 def people_remove(request, people_id):
+    dependencies = Dependency.objects.all().order_by('-name')
     people = get_object_or_404(People, pk=people_id)
     people.delete()
     peoples = People.objects.all().order_by('-category')
     context = {
+        'dependencies': dependencies,
         'peoples': peoples,
         'success_message': 'La persona  ' + people.get_full_name() + ' ha sido eliminada exitosamente.',
     }

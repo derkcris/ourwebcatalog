@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block left_panel %}
+<div id="left-panel" class="left-panel">
+    <h3>Items</h3>
+    <ul class="level1">
+        <a href="{% url 'item_availables' %}">Disponibles</a>
+        <a href="{% url 'item_on_loan' %}">En prestamo</a>
+        <a href="{% url 'item_returned' %}">Devueltos</a>
+    </ul>
+</div>
+{% endblock %}
+
+
+{% block content %}
+
+{% endblock %}

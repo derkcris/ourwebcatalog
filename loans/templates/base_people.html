@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block left_panel %}
+{% if dependencies %}
+<div id="left-panel" class="left-panel">
+    <h3>Dependencias</h3>
+    <ul class="level1">
+        {% for dependency in dependencies %}
+            <li>
+                <a href="{% url 'dependency' dependency.id %}">{{ dependency.name }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endif %}
+{% endblock %}
+
+
+{% block content %}
+
+{% endblock %}
